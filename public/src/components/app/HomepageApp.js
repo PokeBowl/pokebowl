@@ -1,11 +1,17 @@
 import Component from '../Component.js';
 
-class Homepage extends Component {
+class HomepageApp extends Component {
     renderHTML() {
         return /*html*/`
-            
+        <div>
+            <body>
+                <img src="./assets/pokebowl-header.png" alt="pokebowl-logo">
+                <button>Enter the PokéBowl</button>
+            </body>
+        </div>
+           
         `;
     }
 }
 
-export default Homepage;
+export default HomepageApp;
