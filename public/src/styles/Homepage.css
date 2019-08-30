@@ -1,0 +1,33 @@
+@media screen and (max-width: 550px) {
+    #home-logo-container {
+        background-color: purple;
+        width: 90%;
+    }
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    
+}
+div.home-main-container {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#home-logo-container {
+    background-color: purple;
+    width: 80%;
+}
+
+#home-logo {
+    width: 100%;
+}
+
+#enter-app {
+    background-color: pink;
+}
