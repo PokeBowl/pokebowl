@@ -3,13 +3,12 @@ import Component from '../Component.js';
 class HomepageApp extends Component {
     renderHTML() {
         return /*html*/`
-        <div>
-            <body>
-                <img src="./assets/pokebowl-header.png" alt="pokebowl-logo">
-                <button>Enter the PokéBowl</button>
-            </body>
-        </div>
-           
+            <div class="home-main-container">
+                <div id="home-logo-container">
+                    <img id="home-logo" src="./assets/pokebowl-header.png" alt="pokebowl-logo">
+                </div>
+                <button id="enter-app">Enter the PokéBowl</button>
+            </div>
         `;
     }
 }
