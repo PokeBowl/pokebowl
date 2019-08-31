@@ -55,8 +55,8 @@ class AuthApp extends Component {
     }
     renderHTML() {
         return /*html*/`
-           <div>
-               <main>
+           <div class="main-div">
+               <main class="auth-main">
                    <p class="errors"></p>
                    <section class="hidden" id="signup-container">
                        <div class="switch">
