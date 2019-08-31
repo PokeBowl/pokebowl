@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    height: 100%;
+}
+
+button, input {
+    font-family: 'Press Start 2P', cursive;
+}
+
+.hidden {
+    display: none;
+}
