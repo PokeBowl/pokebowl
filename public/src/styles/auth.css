@@ -6,3 +6,9 @@
  main div.switch, main p.errors {
     text-align: center;
  }
+
+ @media screen and (max-width: 550px) {
+    .main-div {
+       width: 100%;
+    }
+ }
