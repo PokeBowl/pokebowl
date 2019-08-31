@@ -1,0 +1,16 @@
+@media screen and (max-width: 550px) {
+
+}
+header {
+    width: 100%;
+}
+
+.header-img-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+
+.header-image {
+    width: 100%;
+}
