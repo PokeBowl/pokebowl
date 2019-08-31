@@ -5,23 +5,33 @@
     #enter-app {
         margin-top: 10%;
         padding: 2%;
-        width: 55%;
-        font-size: 1.2rem;
+        width: 65%;
+        font-size: 7pt;
     }
 }
-@media screen and (min-width: 551px;) and (max-width: 750px) {
+@media screen and (min-width: 551px) and (max-width: 750px) {
     #home-logo-container {
-        width: 70%;
+        width: 75%;
     }
     #enter-app {
-        margin-top: 10%;
-        padding: 2%;
-        width: 55%;
-        font-size: 1.2rem;
+        margin-top: 5%;
+        padding: 1.5%;
+        width: 40%;
+        font-size: 9pt;
     }
 }
 
-
+@media screen and (min-width: 751px) {
+    #home-logo-container {
+        width: 80%;
+    }
+    #enter-app {
+        margin-top: 5%;
+        padding: 1.5%;
+        width: 30%;
+        font-size: 12pt;
+    }
+}
 
 body {
     display: flex;
@@ -32,15 +42,11 @@ body {
 
 div.home-main-container {
     display: flex;
-    height: 97.2vh;
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 10px double #2B73B9; 
-}
-
-#home-logo-container {
-    width: 95%;
 }
 
 #home-logo {
