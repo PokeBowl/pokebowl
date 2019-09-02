@@ -9,6 +9,16 @@
 
  @media screen and (max-width: 550px) {
     .main-div {
-       width: 100%;
+      width: 100%;
     }
+    .auth-main {
+       width: 90%;
+    }
+    section {
+       font-size: 1.2rem;
+    }
+ }
+
+ body {
+   background-color: #E67B95; 
  }
