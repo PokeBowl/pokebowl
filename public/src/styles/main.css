@@ -11,6 +11,10 @@ button, input {
     font-family: 'Press Start 2P', cursive;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .hidden {
     display: none;
 }
