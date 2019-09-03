@@ -1,4 +1,7 @@
 @media screen and (max-width: 550px) {
+    header {
+        margin: 2% 0;
+    }
     .header-img-container {
         width: 90%;
         margin: auto;
