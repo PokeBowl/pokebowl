@@ -7,9 +7,9 @@ class AboutUsListItem extends Component {
         const person = this.props.person;
         return /*html*/`
                 <li>
-                    <img href="${person.nameText}" alt="${person.name} picture">
-                    <img href="${person.PokemonImg}"
-                    <p>"${person.blurb}</p>
+                    <img src="${person.nameText}" alt="${person.name} picture">
+                    <img src="${person.pokemonImg}"
+                    <p>${person.blurb}</p>
                 </li>
             `;
     }
