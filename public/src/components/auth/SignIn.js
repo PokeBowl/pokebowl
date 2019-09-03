@@ -27,7 +27,7 @@ class SignIn extends Component {
                 
                 <div>
                     <label for="signin-password">Password</label>
-                    <input id="signin-password" type="password" name="password" required>
+                    <input id="signin-password" type="password" name="password" required placeholder="********">
                 </div>
 
                 <div class="sign-in-button">
