@@ -7,7 +7,7 @@ class HomepageApp extends Component {
                 <div id="home-logo-container">
                     <img id="home-logo" src="./assets/pokebowl-header.png" alt="pokebowl-logo">
                 </div>
-                <button id="enter-app">Enter the PokéBowl</button>
+                <button id="enter-app"><a href="./auth.html">Enter the PokéBowl</a></button>
             </div>
         `;
     }
