@@ -12,13 +12,50 @@
       width: 100%;
     }
     .auth-main {
-       width: 90%;
+      width: 100%;
     }
     section {
-       font-size: 1.2rem;
+      font-size: 1.2em;
+      margin: 10% 2%;
+    }
+    form.auth-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      height: auto;
+      margin: 4% 2%;
+      padding: 10% 2%;
+      background-color: rgb(173, 216, 230);
+      border: 5px dashed rgb(43, 114, 185);
+      border-radius: 5px;
+    }
+    form div {
+      width: 100%;
+      text-align: center;
+      padding: 2%;
+    }
+    input {
+      width: 90%;
+      padding: 1% 0;
+    }
+    form button, #signup-button, #signin-button {
+      padding: 2%;
+      font-size: 10pt;
     }
  }
 
  body {
-   background-color: #E67B95; 
+  background-color: #E67B95;
+  height: 100vh;
  }
+
+ form button, #signup-button, #signin-button {
+  background-color: #F8D030;
+  border: 5px solid rgb(43, 114, 185);
+  border-radius: 3px;
+ }
+
+#locker-room-nav, .log-out-button {
+  display: none;
+}
