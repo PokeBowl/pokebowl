@@ -14,8 +14,8 @@ class Header extends Component {
                     
 
                     <nav class="head-nav">
-                        <a id="locker-room-nav" href="./locker-room.html">Locker Room</a>
-                        <a href="./about-us.html">About Us</a>
+                        <a class="locker-room-nav" href="./locker-room.html">Locker Room</a>
+                        <a class="locker-room-nav" href="./about-us.html">About Us</a>
                     </nav>
                 </header>
             </div>
