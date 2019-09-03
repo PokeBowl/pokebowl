@@ -22,9 +22,11 @@ class Field extends Component {
 
     renderHTML() {
         return /*html*/`
-            <div>
-                <img src="./assets/stadium.jpg" alt="The Field">
-
+            <div id="field">
+                <div id="pokebowl-header">
+                    <img src="./assets/pokebowl-header.png">
+                </div>
+                
                 <div id="user-pokemon"></div>
                 <div id="opponent-pokemon"></div>
             </div>
