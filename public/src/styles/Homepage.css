@@ -46,7 +46,7 @@ div.home-main-container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 10px double #2B73B9; 
+    /* border: 10px double #2B73B9;  */
 }
 
 #home-logo {
@@ -58,7 +58,10 @@ div.home-main-container {
     border: 5px solid rgb(43, 114, 185);
     border-radius: 3px;
 }
-
+a {
+    text-decoration: none;
+    color: black;
+}
 #enter-app:hover {
     cursor: pointer;
     transform: scale(1.1);
