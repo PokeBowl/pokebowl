@@ -46,7 +46,7 @@ div.home-main-container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 10px double #2B73B9; 
+    /* border: 10px double #2B73B9;  */
 }
 
 #home-logo {
