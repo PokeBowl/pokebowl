@@ -7,16 +7,20 @@ class AboutUsApp extends Component {
     onRender(dom) {
         const header = new Header();
         dom.prepend(header.renderDOM());
+
+        const aboutUsList = dom.querySelector('#about-us-list');
         
         aboutUsData.forEach(person => {
             const props = { person };
             const aboutUsListItem = new AboutUsListItem(props);
-            dom.appendChild(aboutUsListItem.renderDOM());
+            aboutUsList.appendChild(aboutUsListItem.renderDOM());
         });
     }
     renderHTML() {
         return /*html*/`
-            <ul id="about-us-list"></ul>
+            <div>
+                <ul id="about-us-list"></ul>
+            </div>
         `;
     }
 }

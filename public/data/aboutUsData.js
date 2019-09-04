@@ -18,7 +18,7 @@ const aboutUsData = [
         name: 'Ollie',
         nameText: '../public/assets/poketext-name/ollie.png',
         pokemonImg: '../public/assets/poke-avatar/ollie-avatar.png',
-        blurb: 'Pokemon was one of the Saturday cartoons that introduced Ollie to anime. They\'ve played Pokemon since middle school, their first game being Soul Silver. Pokemon got them into turn based RPGs and is one of the series that inspires them to make games of their own'
+        blurb: 'Ollie has played Pokemon since middle school, their first game being Soul Silver. Pokemon got them into turn based RPGs and is one of the series that inspires them to make games of their own.'
     },
 
     {
