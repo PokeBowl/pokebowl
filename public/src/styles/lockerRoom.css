@@ -80,8 +80,9 @@
         margin: 1%;
         padding: 2%;
         width: 30%;
+        min-width: 126px;
         align-self: center;
-        font-size: 11pt;
+        font-size: 10pt;
     }
     div#button-container {
         justify-content: space-evenly;
