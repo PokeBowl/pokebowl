@@ -58,7 +58,7 @@ app.get('/api/user-pokemon-stats', (req, res) => {
              defense,
              hp,
              url_image
-        FROM user-pokemon-stats
+        FROM user_pokemon_stats
         WHERE user_id = $1;
     `,
     [req.userId]
@@ -76,7 +76,7 @@ app.get('/api/user-pokemon-stats', (req, res) => {
 app.post('/api/user-pokemon-stats', (req, res) => {
     const pokemon = req.body;
     client.query(`
-        INSERT INTO user-pokemon-stats (pokemon, attack, defense, hp, url_image, user_id)
+        INSERT INTO user_pokemon_stats (pokemon, attack, defense, hp, url_image, user_id)
         VALUES ($1, $2, $3, $4, $5, $6)
         RETURNING *;
     `,
@@ -98,7 +98,7 @@ app.put('/api/user-pokemon-stats/:id', (req, res) => {
     const pokemon = req.body;
 
     client.query(`
-        UPDATE user-pokemon-stats
+        UPDATE user_pokemon_stats
         SET    attack = $2,
                defense = $3,
                hp = $4
@@ -123,7 +123,7 @@ app.delete('/api/user-pokemon-stats/:id', (req, res) => {
     const id = req.params.id;
 
     client.query(`
-        DELETE FROM user-pokemon-stats
+        DELETE FROM user_pokemon_stats
         WHERE  id = $1
         AND    user_id = $2
         RETURNING *;
