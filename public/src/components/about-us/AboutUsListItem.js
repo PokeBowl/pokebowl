@@ -7,9 +7,15 @@ class AboutUsListItem extends Component {
         const person = this.props.person;
         return /*html*/`
             <li class="person">
-                <img class="person-name" src="${person.nameText}" alt="${person.name} picture">
-                <img class="person-pokemon" src="${person.pokemonImg}">
-                <p>${person.blurb}</p>
+                <div id="person-name-container">
+                    <img class="person-name" src="${person.nameText}" alt="${person.name} picture">
+                </div>
+                <div id="person-pokemon-container">
+                    <img class="person-pokemon" src="${person.pokemonImg}">
+                </div>
+                <div class="blurb">
+                    <p>${person.blurb}</p>
+                </div>
             </li>
         `;
     }
