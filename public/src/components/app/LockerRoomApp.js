@@ -10,6 +10,7 @@ class LockerRoomApp extends Component {
         const headerRoot = dom.querySelector('#header-root');
         const historicalDataContainer = dom.querySelector('#historical-data-container');
         const userPokemonContainer = dom.querySelector('#user-pokemon-container');
+        const enterPokebowlButton = dom.querySelector('#enter-pokebowl');
         
         const header = new Header();
         headerRoot.prepend(header.renderDOM());
@@ -22,6 +23,12 @@ class LockerRoomApp extends Component {
 
         const lockerRoomPokemon = new UserPokemon(props);
         userPokemonContainer.appendChild(lockerRoomPokemon.renderDOM());
+
+        
+        enterPokebowlButton.addEventListener('click', () => {
+            window.location = `./pokebowl.html`;
+        });
+        
     }
 
     renderHTML() {
@@ -36,7 +43,7 @@ class LockerRoomApp extends Component {
                             <p id="instructions">
                             Game Play Instructions Go Here
                             </p>
-                            <button>Enter the PokeBowl</button>
+                            <button id="enter-pokebowl">Enter the PokeBowl</button>
                     </div>
                     </div>
                     

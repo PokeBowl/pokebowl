@@ -14,5 +14,5 @@ const pokemonData = [
         url_image: './assets/poke-avatar/joe-avatar.png'    
     },
 ]; 
-
+ 
 export default pokemonData;
