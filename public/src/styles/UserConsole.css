@@ -1,42 +1,83 @@
+@media screen and (max-width: 550px) {
+    #user-pokemon {
+        display: none;
+    }
+    #mobile-user-pokemon {
+        max-width: 50%;
+        margin-right: 2%;
+        margin-top: 2%;
+    }
+    #opponent-pokemon {
+        width: 60%;
+        align-self: center;
+        margin-top: 5%;
+    }
+    #field {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #gameplay-action-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 2%;
+        min-width: 40%;
+    }
+    #console-flex-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}
+
+/* general styles */
+
+#field {
+    background-image: url("../../assets/stadium.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 #user-console {
-    background-color:  #E67B95; 
+    background-color: #E67B95; 
     position: fixed;
     bottom: 0;
-    min-height: 50%;
+    min-height: 30%;
     padding: 2%;
     min-width: 100%;
-}
-
-#mobile-user-pokemon {
-    /* background-color: lime; */
-    max-width: 50%;
-    margin-right: 2%;
-    height: 235px;
-}
-
-.console-button {
-    background-color: #F8D030;
-    margin-left: 2%;
-    padding: 4%;
 }
 
 #gameplay-text-container {
     background-color: lightblue;
     margin-bottom: 2%;
     padding: 2%;
-    border: 5px double rgb(43, 114, 185)
-}
-
-#console-flex-container {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    /* background-color: blueviolet; */
-    min-height: 245px;
+    border: 5px double rgb(43, 114, 185);
 }
 
 #gameplay-action-container {
-    background-color: orange;
+    background-color: lightgray;
+    border: 5px solid #F8D030;
+}
+
+.console-button {
+    border: 5px solid rgb(43, 114, 185);
+    border-radius: 3px;
+    margin: 15% 2%;
+    padding: 4%;
+}
+
+#attack-button {
+    background-color: #F8D030;
+}
+
+#defense-button {
+    background-color: lightgreen; 
+}
+
+#forfeit-button {
+    background-color: lightpink; 
 }
 
 .pokemon-image-container img {
@@ -45,8 +86,7 @@
 
 #stats {
     background-color: lightgray;
-}
-
-.pokemon-card {
-    width: 100px;
+    padding: 5%;
+    border: 5px solid #F8D030;
+    border-radius: 3px;
 }

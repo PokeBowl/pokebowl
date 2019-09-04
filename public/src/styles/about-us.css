@@ -39,7 +39,7 @@
         display: inline-flex;
         flex-direction: column;
         align-items: center;
-        max-width: 22%;
+        min-width: 22%;
         margin: 1%;
         padding: 1%;
         min-height: 100%;
@@ -53,7 +53,7 @@
     .person p {
         max-width: 99%;
         height: 100%;
-        padding: 5%;
+        padding: 3%;
         max-height: 200%;
         text-align: center;
     }
