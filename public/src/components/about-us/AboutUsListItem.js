@@ -9,7 +9,9 @@ class AboutUsListItem extends Component {
             <li class="person">
                 <img class="person-name" src="${person.nameText}" alt="${person.name} picture">
                 <img class="person-pokemon" src="${person.pokemonImg}">
-                <p>${person.blurb}</p>
+                <div class="blurb">
+                    <p>${person.blurb}</p>
+                </div>
             </li>
         `;
     }
