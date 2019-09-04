@@ -1,0 +1,19 @@
+@media screen and (max-width: 550px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #user-pokemon-item {
+        width: 90%;
+    }
+
+    #user-image-container {
+        width: 80%;
+    }
+    #user-image-container img {
+        width: 100%;
+    }
+
+}

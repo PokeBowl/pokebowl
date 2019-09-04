@@ -1,16 +1,137 @@
 @media screen and (max-width: 550px) {
+    header {
+        margin: 0 0 2% 0;
+    }
+    .header-img-container {
+        width: 90%;
+        margin: auto;
+    }
+    .log-out-container {
+        justify-content: center;
+        width: 100%;
+        margin: 2% 0 1% 0;
+    }
+    .log-out-button {
+        width: 40%;
+        max-width: 130px;
+        padding: 1% 0;
+        font-size: 1.05rem;
+    }
+    .head-nav {
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.01rem;
+    }
+    .head-nav a {
+        text-align: center;
+        padding: 1% 0;
+        width: 40%;
+        margin: 1% 0;
+    }
+}
+
+@media screen and (min-width: 551px) and (max-width: 750px) {
+    header {
+        margin: 0 0 2% 0;
+        padding: 2%;
+        display: flex;
+    }
+
+    .header-img-container {
+        padding-right: 2%;
+        width: auto;
+    }
+
+    #button-container, .head-nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .log-out-container {
+        justify-content: center;
+    }
+
+    .log-out-button, .head-nav a {
+        font-size: 1.01rem;
+        text-align: left;
+        padding: 2% 2%;
+        margin-top: 3%;
+    }
 
 }
+
+@media screen and (min-width: 751px) {
+    header {
+        margin: 0 0 2% 0;
+        padding: 2%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .header-img-container {
+        padding-right: 2%;
+        width: auto;
+        max-width: 40%;
+        justify-self: center;
+    }
+
+    #button-container, .head-nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .log-out-container {
+        justify-content: center;
+    }
+
+    .log-out-button, .head-nav a {
+        font-size: 1.01rem;
+        text-align: center;
+        padding: 2% 2%;
+        margin-top: 3%;
+    }
+    .log-out-button {
+        width: 100%;
+    }
+    #button-container {
+        margin-left: 10%;
+    }
+}
+
 header {
     width: 100%;
+    background-color: #E67B95; 
+}
+
+.head-nav {
+    display: flex;
+}
+
+.head-nav a {
+    text-decoration: none;
+    color: black;
+    background-color: #F8D030;
+    border: 5px solid rgb(43, 114, 185);
+    border-radius: 3px;
 }
 
 .header-img-container {
     display: flex;
-    flex-direction: row;
-    width: 80%;
+}
+
+.log-out-container {
+    display: flex;
+}
+
+.log-out-button {
+    background-color: #F8D030;
+    border: 5px solid rgb(43, 114, 185);
+    border-radius: 3px;
 }
 
 .header-image {
     width: 100%;
 }
+
