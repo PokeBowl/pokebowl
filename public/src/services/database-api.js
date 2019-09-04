@@ -13,7 +13,7 @@ function fetchWithError(url, options) {
         options = options || {};
         options.headers = options.headers || {};
         options.headers.Authorization = token;
-        location = `/locker-room.html`;
+        // location = `/locker-room.html`;
     }
 
     return fetch(url, options)
