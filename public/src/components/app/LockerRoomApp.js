@@ -26,7 +26,7 @@ class LockerRoomApp extends Component {
 
         
         enterPokebowlButton.addEventListener('click', () => {
-            
+            window.location = `./pokebowl.html`;
         });
         
     }
