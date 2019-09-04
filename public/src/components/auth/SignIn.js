@@ -23,12 +23,12 @@ class SignIn extends Component {
                 <div>
                     <label for="signin-email">Email</label>
                     <input id="signin-email" type="email" name="email" required placeholder="Your Email">
-                </div
+                </div>
                 
                 <div>
                     <label for="signin-password">Password</label>
-                    <input id="signin-password" type="password" name="password" required>
-                </div
+                    <input id="signin-password" type="password" name="password" required placeholder="********">
+                </div>
 
                 <div class="sign-in-button">
                     <button>Sign In</button>
