@@ -50,11 +50,34 @@ export function userSignIn(credentials) {
     });
 }
 
+
+
 export function addHistoryItem(battleResult) {
 
-    const url = `${URL}/battle_result`;
-    
-    
+    const url = `${URL}/battle-results`;
+    return fetchWithError(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(battleResult)
+    });
+}
+
+export function getHistoryItems() {
+    const url = `${URL}/battle-results`;
+    return fetchWithError(url);
+}
+
+export function deleteUserHistory(id) {
+    const url = `${URL}/battle-results/${id}`;
+    return fetchWithError(url, {
+        method: 'DELETE'
+    });
+}
+
+
+
 export function getUserPkmnStats() {
     const url = `${URL}/user-pokemon-stats`;
     return fetchWithError(url);
@@ -67,16 +90,10 @@ export function addUserPkmnStats(pokemon) {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(battleResult)
-    });
-}
-
-export function getHistoryItems(id) {
-    const url = `${URL}/battle_result`;
-        
         body: JSON.stringify(pokemon)
     });
 }
+
 
 export function updateUserPkmnStats(pokemon) {
     const url = `${URL}/user-pokemon-stats/${pokemon.id}`;

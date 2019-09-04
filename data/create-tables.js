@@ -10,13 +10,12 @@ client.query(`
     );
     
     CREATE TABLE history (
-        id INTEGER NOT NULL,
+
+        id SERIAL PRIMARY KEY,
         user_char VARCHAR(256) NOT NULL,
         opponent VARCHAR(256) NOT NULL,
         result VARCHAR(256) NOT NULL,
-        CONSTRAINT history_user_id_fkey FOREIGN KEY (id)
-            references users (id) MATCH SIMPLE
-            ON UPDATE NO ACTION ON DELETE NO ACTION
+        user_id INTEGER NOT NULL REFERENCES users(id)
     )
 
     CREATE TABLE user-pokemon-stats (
