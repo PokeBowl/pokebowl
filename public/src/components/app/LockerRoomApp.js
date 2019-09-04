@@ -30,13 +30,16 @@ class LockerRoomApp extends Component {
             <div id="header-root">
                 <main>
                     <div id="user-pokemon-container"></div>
-                    <div id="historical-data-container"></div>
-                    <div id="how-to-play-container">
-                        <p id="instructions">
-                        Game Play Instructions Go Here
-                        </p>
-                        <button>Enter the PokeBowl</button>
+                    <div id="history-instructions-div">
+                        <div id="historical-data-container"></div>
+                        <div id="how-to-play-container">
+                            <p id="instructions">
+                            Game Play Instructions Go Here
+                            </p>
+                            <button>Enter the PokeBowl</button>
                     </div>
+                    </div>
+                    
                 </main>
             </div>
         </div>

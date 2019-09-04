@@ -1,0 +1,112 @@
+@media screen and (max-width: 550px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    #historical-data-container, #how-to-play-container {
+        width: 90%;
+        display: flex;
+        margin: 2% auto;
+    }
+    #how-to-play-container {
+        flex-direction: column;
+    }
+    #how-to-play-container p {
+        padding: 2%;
+    }
+    #how-to-play-container button {
+        margin: 2%;
+        width: 50%;
+        align-self: center;
+        font-size: 10pt;
+    }
+}
+
+@media screen and (min-width: 551px) and (max-width: 750px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    #historical-data-container, #how-to-play-container {
+        width: 70%;
+        display: flex;
+        margin: 1% auto;
+    }
+    #how-to-play-container {
+        flex-direction: column;
+    }
+    #how-to-play-container p {
+        padding: 2%;
+    }
+    #how-to-play-container button {
+        margin: 1%;
+        padding: 1%;
+        width: 30%;
+        align-self: center;
+        font-size: 11pt;
+    }
+    div#button-container {
+        justify-content: space-evenly;
+    }
+}
+
+@media screen and (min-width: 751px) {
+    main {
+        display: flex;
+        flex-direction: row;
+    }
+
+    div#history-instructions-div {
+        width: 50%;
+    }
+    
+    #historical-data-container, #how-to-play-container {
+        width: 80%;
+        display: flex;
+        margin: 0 auto;
+    }
+    #how-to-play-container {
+        flex-direction: column;
+        margin: 1% auto;
+    }
+    #how-to-play-container p {
+        padding: 2%;
+    }
+    #how-to-play-container button {
+        margin: 1%;
+        padding: 2%;
+        width: 30%;
+        align-self: center;
+        font-size: 11pt;
+    }
+    div#button-container {
+        justify-content: space-evenly;
+    }
+}
+
+.lock-hide {
+    display: none
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: rgba(43, 114, 185, 0.89);
+}
+
+#how-to-play-container {
+    background-color: #E67B95;
+    border-radius: 5px;
+}
+
+#historical-data-container {
+    background-color: #E67B95;
+    border-radius: 5px;
+}
