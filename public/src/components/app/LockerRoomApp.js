@@ -3,6 +3,7 @@ import Header from './Header.js';
 import UserPokemon from '../locker-room/UserPokemon.js';
 import HistoricalData from '../locker-room/HistoricalData.js';
 import pokemonData from '../../../data/pokemonData.js';
+import { loadGameConditions } from '../../services/loadGameConditions.js';
 
 
 class LockerRoomApp extends Component {
@@ -26,7 +27,10 @@ class LockerRoomApp extends Component {
 
         
         enterPokebowlButton.addEventListener('click', () => {
-            window.location = `./pokebowl.html`;
+            loadGameConditions()
+                .then(() => {
+                    window.location = `./pokebowl.html`;
+                });
         });
         
     }
