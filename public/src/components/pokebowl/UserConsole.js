@@ -20,8 +20,8 @@ class UserConsole extends Component {
                 <div id="gameplay-text-container">
                     <span id="gameplay-text">Action text goes here.</span>
                 </div>
-                <section id="ollies-flex-section">
-                    <div id="mobile-user-pokemon">word</div>
+                <section id="console-flex-container">
+                    <div id="mobile-user-pokemon"></div>
                     <div id="gameplay-action-container">
                         <button class="console-button" id="attack-button">ATTACK</button>
                         <button class="console-button" id="defense-button">DEFEND</button>

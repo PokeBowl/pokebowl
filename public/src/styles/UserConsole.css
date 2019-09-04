@@ -1,22 +1,52 @@
 #user-console {
-    background-color: rgb(43, 114, 185);
+    background-color:  #E67B95; 
     position: fixed;
     bottom: 0;
     min-height: 50%;
     padding: 2%;
+    min-width: 100%;
 }
 
 #mobile-user-pokemon {
-    background-color: lime;
-    min-width: 10px;
+    /* background-color: lime; */
+    max-width: 50%;
+    margin-right: 2%;
+    height: 235px;
 }
 
 .console-button {
     background-color: #F8D030;
+    margin-left: 2%;
+    padding: 4%;
 }
 
 #gameplay-text-container {
-    background-color: #E67B95;
+    background-color: lightblue;
     margin-bottom: 2%;
     padding: 2%;
+    border: 5px double rgb(43, 114, 185)
+}
+
+#console-flex-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: blueviolet; */
+    min-height: 245px;
+}
+
+#gameplay-action-container {
+    background-color: orange;
+}
+
+.pokemon-image-container img {
+    max-width: 100%;
+}
+
+#stats {
+    background-color: lightgray;
+}
+
+.pokemon-card {
+    width: 100px;
 }
