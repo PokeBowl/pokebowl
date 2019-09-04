@@ -16,16 +16,18 @@ class UserConsole extends Component {
     
     renderHTML() {
         return /*html*/`
-            <div>
-                <div class="hidden" id="mobile-user-pokemon"></div>
+            <div id="user-console">
                 <div id="gameplay-text-container">
                     <span id="gameplay-text">Action text goes here.</span>
                 </div>
-                <div id="gameplay-action-container">
-                    <button id="attack-button">ATTACK</button>
-                    <button id="defense-button">DEFEND</button>
-                    <button id="forfeit-button">FORFEIT</button>
-                </div>
+                <section id="ollies-flex-section">
+                    <div id="mobile-user-pokemon">word</div>
+                    <div id="gameplay-action-container">
+                        <button class="console-button" id="attack-button">ATTACK</button>
+                        <button class="console-button" id="defense-button">DEFEND</button>
+                        <button class="console-button" id="forfeit-button">FORFEIT</button>
+                    </div>
+                </section>
             </div>
         `;
     }
