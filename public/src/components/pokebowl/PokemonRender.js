@@ -5,12 +5,14 @@ class PokemonRender extends Component {
         const pokemon = this.props.pokemon;
 
         return /*html*/`
-            <div>
+            <div class="pokemon-card">
                 <div id="stats">
                     <p>${pokemon.pokemon}</p>
                     <p>HP: ${pokemon.hp}</p>
                 </div>
-                <img src="${pokemon.url_image}" alt="${pokemon.pokemon}">
+                <div class="pokemon-image-container">
+                    <img src="${pokemon.url_image}" alt="${pokemon.pokemon}">
+                </div>
             </div>
         `;
     }
