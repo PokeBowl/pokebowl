@@ -4,9 +4,11 @@ class UserPokemon extends Component {
     renderHTML() {
         const pokemon = this.props.pokemon;
         return /*html*/`
-            <div>
+            <div id="user-pokemon-item">
                 <h2>${pokemon.pokemon}</h2>
-                <img src="${pokemon.url_image}" alt="${pokemon.pokemon}">
+                <div id="user-image-container">
+                    <img src="${pokemon.url_image}" alt="${pokemon.pokemon}">
+                </div>
                 <div id="pokemon-stats">
                     <p>Attack Points: ${pokemon.attack}</p>
                     <p>Defense Points: ${pokemon.defense}</p>
