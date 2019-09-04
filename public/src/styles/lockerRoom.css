@@ -62,19 +62,24 @@
 
     div#history-instructions-div {
         width: 50%;
+        flex-direction: column;
     }
     
     #historical-data-container, #how-to-play-container {
         width: 80%;
+        text-overflow: scroll;
+        height: 49%;
         display: flex;
         margin: 0 auto;
     }
     #how-to-play-container {
+        height: 49%;
         flex-direction: column;
         margin: 1% auto;
     }
     #how-to-play-container p {
         padding: 2%;
+        text-overflow: scroll;
     }
     #how-to-play-container button {
         margin: 1%;
