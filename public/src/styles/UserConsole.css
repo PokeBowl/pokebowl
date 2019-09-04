@@ -21,6 +21,7 @@
         min-height: 30%;
         padding: 2%;
         min-width: 100%;
+        max-height: 50%;
     }
     #gameplay-action-container {
         display: flex;
@@ -33,6 +34,12 @@
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+    }
+    #pokebowl-header {
+        max-width: 30%;
+    }
+    #pokebowl-header img {
+        max-width: 100%;
     }
 }
 @media screen and (min-width: 551px) and (max-width: 750px) {
@@ -64,12 +71,59 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        padding: 2%;
+        padding: 1%;
     }
     #console-flex-container {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+    }
+    #pokebowl-header {
+        max-width: 20%;
+    }
+    #pokebowl-header img {
+        max-width: 100%;
+    }
+}
+@media screen and (min-width: 751px) {
+    #user-pokemon {
+        max-width: 30%;
+    }
+    #mobile-user-pokemon {
+        display: none;
+    }
+    #opponent-pokemon {
+        width: 45%;
+        /* margin-top: 1%;
+        margin-bottom: 1%; */
+    }
+    #field {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    #user-console {
+        min-height: 40%;
+        padding: 1%;
+        min-width: 100%;
+    }
+    #gameplay-action-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1%;
+        width: 30%;
+    }
+    #console-flex-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #pokebowl-header {
+        max-width: 20%;
+    }
+    #pokebowl-header img {
+        max-width: 100%;
     }
 }
 
