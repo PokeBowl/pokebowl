@@ -3,7 +3,6 @@ import Header from './Header.js';
 import UserPokemon from '../locker-room/UserPokemon.js';
 import HistoricalData from '../locker-room/HistoricalData.js';
 import pokemonData from '../../../data/pokemonData.js';
-import { getUserPokemon } from '../../services/pokemon-api.js';
 
 
 class LockerRoomApp extends Component {
@@ -25,9 +24,11 @@ class LockerRoomApp extends Component {
         const lockerRoomPokemon = new UserPokemon(props);
         userPokemonContainer.appendChild(lockerRoomPokemon.renderDOM());
 
+        
         enterPokebowlButton.addEventListener('click', () => {
-            getUserPokemon();
+            
         });
+        
     }
 
     renderHTML() {
