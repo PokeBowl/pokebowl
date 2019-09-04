@@ -13,6 +13,6 @@ const pokemonData = [
         hp: 50, 
         url_image: './assets/poke-avatar/joe-avatar.png'    
     },
-];
-
+]; 
+ 
 export default pokemonData;
