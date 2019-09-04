@@ -4,7 +4,7 @@ const aboutUsData = [
         name: 'Antonella',
         nameText: '../public/assets/poketext-name/antonella.png',
         pokemonImg: '../public/assets/poke-avatar/antonella-avatar.png',
-        blurb: 'Antonella thinks Flareon is super cute, thus, it\'s her favorite Eeveelution. Antonella always wished her hair looked like Flareon\'s luxurious  tail.'
+        blurb: 'Antonella thinks Flareon is super cute, thus, it\'s her favorite Eevee-lution. Antonella always wished her hair looked like Flareon\'s luxurious  tail.'
     },
 
     {
@@ -25,7 +25,7 @@ const aboutUsData = [
         name: 'Phil',
         nameText: '../public/assets/poketext-name/phil.png',
         pokemonImg: '../public/assets/poke-avatar/phil-avatar.png',
-        blurb: 'Phil can usually be found digging around in the Pokemon api, or picking a Pokemon theme song on the banjo.',
+        blurb: 'Phil can usually be found digging around in the Pokemon api, or picking a Pokemon theme on the banjo.',
     }
 ];
 

@@ -100,6 +100,10 @@ body {
     list-style: none;
 }
 
+.blurb {
+    word-wrap: break-word;
+}
+
 .person p {
     background-color: #F8D030;
     border: 5px double rgb(43, 114, 185);
