@@ -53,6 +53,15 @@ export function userSignIn(credentials) {
 export function addHistoryItem(battleResult) {
 
     const url = `${URL}/battle_result`;
+    
+    
+export function getUserPkmnStats() {
+    const url = `${URL}/user-pokemon-stats`;
+    return fetchWithError(url);
+}
+
+export function addUserPkmnStats(pokemon) {
+    const url = `${URL}/user-pokemon-stats`;
     return fetchWithError(url, {
         method: 'POST',
         headers: {
@@ -65,4 +74,24 @@ export function addHistoryItem(battleResult) {
 export function getHistoryItems(id) {
     const url = `${URL}/battle_result`;
         
+        body: JSON.stringify(pokemon)
+    });
+}
+
+export function updateUserPkmnStats(pokemon) {
+    const url = `${URL}/user-pokemon-stats/${pokemon.id}`;
+    return fetchWithError(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(pokemon)
+    });
+} 
+
+export function removeUserPkmnStats(id) {
+    const url = `${URL}/user-pokemon-stats/${id}`;
+    return fetchWithError(url, {
+        method: 'DELETE'
+    });
 }
