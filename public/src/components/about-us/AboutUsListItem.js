@@ -13,7 +13,9 @@ class AboutUsListItem extends Component {
                 <div id="person-pokemon-container">
                     <img class="person-pokemon" src="${person.pokemonImg}">
                 </div>
-                <p>${person.blurb}</p>
+                <div class="blurb">
+                    <p>${person.blurb}</p>
+                </div>
             </li>
         `;
     }

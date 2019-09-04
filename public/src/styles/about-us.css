@@ -6,17 +6,25 @@
         margin: 5%;
         padding: 2%;
     }
+
     .person-name {
         max-height: 100%;
         max-width: 100%;
     }
     #person-name-container {
-        height: 3%;
+        height: 4%;
         max-width: 50%;
     }
+
     .person-pokemon {
-        max-width: 70%;
+        margin: auto;
+        width: 100%;
     }
+    #person-pokemon-container {
+        margin: 1%;
+    }
+
+
     .person p {
         padding: 2%;
     }
@@ -29,6 +37,7 @@
         margin: 5%;
         padding: 2%;
     }
+
     .person-name {
         max-height: 100%;
         max-width: 100%;
@@ -37,9 +46,15 @@
         max-width: 60%;
         text-align: center;
     }
+
     .person-pokemon {
-        max-width: 70%;
+        margin: auto;
+        width: 100%;
     }
+    #person-pokemon-container {
+        margin: 1%;
+    }
+
     .person p {
         padding: 2%;
     }
@@ -69,17 +84,18 @@
         width: 100%;
     }
     #person-pokemon-container {
-        
+        margin: 1%;
     }
 
 
     .person p {
         max-width: 99%;
-        height: 100%;
         padding: 3%;
         max-height: 200%;
         text-align: center;
+        
     }
+
     #about-us-list {
         padding: 0;
         margin: 0;
@@ -100,7 +116,14 @@ body {
     list-style: none;
 }
 
+.blurb {
+    word-wrap: break-word;
+    max-width: 97%;
+}
+
 .person p {
     background-color: #F8D030;
     border: 5px double rgb(43, 114, 185);
+    font-size: 20px;
+    line-height: 1.2;
 }
