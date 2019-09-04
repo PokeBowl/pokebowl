@@ -20,8 +20,15 @@ class SignUp extends Component {
             getUserPokemonApi()
                 .then(options => {
                     const i = Math.floor(Math.random() * 25);
-                    const userPokemon = options.results[i];
-                    addUserPkmnStats(userPokemon);
+                    const pokemon = options.results[i];
+                    const userPokemon = {
+                        pokemon: pokemon.pokemon,
+                        attack: pokemon.attack,
+                        defense: pokemon.defense,
+                        hp: pokemon.hp,
+                        url_image: pokemon.url_image
+                    };
+                    console.log(addUserPkmnStats(userPokemon));
                 });
         });
     }
