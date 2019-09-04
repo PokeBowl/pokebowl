@@ -12,6 +12,9 @@
     .person-pokemon {
         max-width: 70%;
     }
+    .person p {
+        padding: 2%;
+    }
 }
 @media screen and (min-width: 551px) and (max-width: 750px) {
     .person {
@@ -27,20 +30,31 @@
     .person-pokemon {
         max-width: 70%;
     }
+    .person p {
+        padding: 2%;
+    }
 }
 @media screen and (min-width: 751px) {
     .person {
-        display: flex;
+        display: inline-flex;
         flex-direction: column;
         align-items: center;
-        margin: 5%;
-        padding: 2%;
+        max-width: 22%;
+        margin: 1%;
+        padding: 1%;
+        min-height: 100%;
     }
     .person-name {
-        max-width: 50%;
+        max-width: 75%;
     }
     .person-pokemon {
-        max-width: 70%;
+        max-width: 100%;
+    }
+    .person p {
+        max-width: 99%;
+        height: 100%;
+        padding: 2%;
+        max-height: 200%;
     }
 }
 
@@ -53,10 +67,10 @@ body {
 .person {
     background-color: lightblue;
     border: 5px dashed #E67B95;
+    list-style: none;
 }
 
 .person p {
     background-color: #F8D030;
-    padding: 2%;
     border: 5px double rgb(43, 114, 185);
 }

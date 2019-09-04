@@ -16,7 +16,9 @@ class AboutUsApp extends Component {
     }
     renderHTML() {
         return /*html*/`
-            <ul id="about-us-list"></ul>
+            <div>
+                <ul id="about-us-list"></ul>
+            </div>
         `;
     }
 }
