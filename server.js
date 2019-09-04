@@ -141,3 +141,67 @@ app.delete('/api/user-pokemon-stats/:id', (req, res) => {
         }); 
 });
 
+app.get('/api/battle-results', (req, res) => {
+    client.query(`
+        SELECT
+             id,
+             user_char AS userChar,
+             opponent,
+             result,
+        FROM history
+        WHERE user_id = $1;
+    `,
+    [req.userId]
+    )
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
+
+app.post('/api/battle-results', (req, res) => {
+    const history = req.body;
+    client.query(`
+        INSERT INTO history (user_char, opponent, result, user_id)
+        VALUES ($1, $2, $3, $4)
+        RETURNING *;
+    `,
+    [history.user_char, history.opponent, history.result, req.userId]
+    )
+        .then(result => {
+            res.json(result.rows[0]);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        }); 
+});
+
+
+
+app.delete('/api/battle-results/:id', (req, res) => {
+    const id = req.params.id;
+
+    client.query(`
+        DELETE FROM history
+        WHERE  id = $1
+        AND    user_id = $2
+        RETURNING *;
+    `,
+    [id, req.userId]
+    )
+        .then(result => {
+            console.log(result);
+            res.json(result.rows[0]);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        }); 
+});
