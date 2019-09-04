@@ -49,3 +49,20 @@ export function userSignIn(credentials) {
         body: JSON.stringify(credentials)
     });
 }
+
+export function addHistoryItem(battleResult) {
+
+    const url = `${URL}/battle_result`;
+    return fetchWithError(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(battleResult)
+    });
+}
+
+export function getHistoryItems(id) {
+    const url = `${URL}/battle_result`;
+        
+}
