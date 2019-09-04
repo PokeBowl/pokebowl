@@ -1,6 +1,6 @@
 @media screen and (max-width: 550px) {
     header {
-        margin: 2% 0;
+        margin: 0 0 2% 0;
     }
     .header-img-container {
         width: 90%;
@@ -34,20 +34,69 @@
 
 @media screen and (min-width: 551px) and (max-width: 750px) {
     header {
-        margin: 2% 0;
+        margin: 0 0 2% 0;
         padding: 2%;
+        display: flex;
     }
+
+    .header-img-container {
+        padding-right: 2%;
+        width: auto;
+    }
+
+    #button-container, .head-nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .log-out-container {
+        justify-content: center;
+    }
+
+    .log-out-button, .head-nav a {
+        font-size: 1.01rem;
+        text-align: left;
+        padding: 2% 2%;
+        margin-top: 3%;
+    }
+
 }
 
 @media screen and (min-width: 751px) {
     header {
+        margin: 0 0 2% 0;
+        padding: 2%;
         display: flex;
         justify-content: center;
-        margin: 0;
-        padding: 1%;
     }
+
     .header-img-container {
-        max-width: 50%;
+        padding-right: 2%;
+        width: auto;
+        max-width: 40%;
+        justify-self: center;
+    }
+
+    #button-container, .head-nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .log-out-container {
+        justify-content: center;
+    }
+
+    .log-out-button, .head-nav a {
+        font-size: 1.01rem;
+        text-align: center;
+        padding: 2% 2%;
+        margin-top: 3%;
+    }
+    .log-out-button {
+        width: 100%;
+    }
+    #button-container {
+        margin-left: 10%;
     }
 }
 
