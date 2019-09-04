@@ -12,6 +12,9 @@
         max-width: 100%;
     }
     #person-name-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         height: 4%;
         max-width: 50%;
     }
@@ -43,6 +46,9 @@
         max-width: 100%;
     }
     #person-name-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         max-width: 60%;
         text-align: center;
     }
@@ -74,6 +80,9 @@
         max-width: 100%;
     }
     #person-name-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         height: 20%;
         text-align: center;
     }
@@ -82,11 +91,12 @@
     .person-pokemon {
         margin: auto;
         width: 100%;
+        max-height: 100%;
     }
     #person-pokemon-container {
         margin: 1%;
+        height: 30%;
     }
-
 
     .person p {
         max-width: 99%;
