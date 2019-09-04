@@ -15,9 +15,7 @@ class PokebowlApp extends Component {
 
     renderHTML() {
         return /*html*/`
-            <div>
-            
-            </div>
+            <div></div>
         `;
     }
 }
