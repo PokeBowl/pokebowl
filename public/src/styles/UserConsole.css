@@ -3,32 +3,37 @@
         display: none;
     }
     #mobile-user-pokemon {
-        max-width: 50%;
-        margin-right: 2%;
-        margin-top: 2%;
+        max-width: 45%;
+        position: absolute;
+        top: 25%;
+        left: 5%;
     }
     #opponent-pokemon {
-        width: 60%;
+        width: 70%;
         align-self: center;
-        margin-top: 5%;
+        margin-top: 10%;
     }
     #field {
+        height: 56vh;
+        padding: 1%;
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
     #user-console {
-        min-height: 30%;
+        height: 45vh;
         padding: 2%;
         min-width: 100%;
-        max-height: 50%;
     }
     #gameplay-action-container {
         display: flex;
         justify-content: center;
         flex-direction: column;
         padding: 2%;
-        min-width: 40%;
+        position: absolute;
+        top: 25%;
+        right: 5%;
+        max-width: 50%;
     }
     #console-flex-container {
         display: flex;
@@ -36,10 +41,24 @@
         align-items: center;
     }
     #pokebowl-header {
-        max-width: 30%;
+        display: flex;
+        max-width: 27%;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+    .console-button {
+        margin: 5% 2%;
+        padding: 4%;
+    }
+    #opponent-pokemon #stats {
+        width: 80%;
+        padding: 1%;
+        margin: 0 auto;
     }
     #pokebowl-header img {
-        max-width: 100%;
+        max-width: 95%;
     }
 }
 @media screen and (min-width: 551px) and (max-width: 750px) {
@@ -129,7 +148,8 @@
 
 /* general styles */
 
-#field {
+body {
+    height: 100vh;
     background-image: url("../../assets/stadium.jpg");
     background-repeat: no-repeat;
     background-size: cover;
@@ -140,25 +160,25 @@
     background-color: #E67B95; 
     position: fixed;
     bottom: 0;
+    border-top: medium double steelblue;
 }
 
 #gameplay-text-container {
     background-color: lightblue;
+    overflow: scroll;
     margin-bottom: 2%;
     padding: 2%;
     border: 5px double rgb(43, 114, 185);
 }
 
 #gameplay-action-container {
-    background-color: lightgray;
+    background-color: rgba(211, 211, 211, 0.918);
     border: 5px solid #F8D030;
 }
 
 .console-button {
     border: 5px solid rgb(43, 114, 185);
     border-radius: 3px;
-    margin: 15% 2%;
-    padding: 4%;
 }
 
 #attack-button {
@@ -174,11 +194,11 @@
 }
 
 .pokemon-image-container img {
-    max-width: 100%;
+    width: 100%;
 }
 
 #stats {
-    background-color: lightgray;
+    background-color: rgba(211, 211, 211, 0.781);
     padding: 5%;
     border: 5px solid #F8D030;
     border-radius: 3px;
