@@ -9,6 +9,15 @@ client.query(`
         display_name VARCHAR(256) NOT NULL
     );
     
+    CREATE TABLE history (
+
+        id SERIAL PRIMARY KEY,
+        user_char VARCHAR(256) NOT NULL,
+        opponent VARCHAR(256) NOT NULL,
+        result VARCHAR(256) NOT NULL,
+        user_id INTEGER NOT NULL REFERENCES users(id)
+    )
+
     CREATE TABLE user-pokemon-stats (
         id SERIAL PRIMARY KEY NOT NULL,
         pokemon VARCHAR(256) NOT NULL,
