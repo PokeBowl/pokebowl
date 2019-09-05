@@ -1,5 +1,4 @@
 import Component from '../Component.js';
-import { getUserPokemonApi } from '../../services/pokemon-api.js';
 
 class SignUp extends Component {
 
@@ -16,13 +15,6 @@ class SignUp extends Component {
             };
 
             onSignUp(user);
-            getUserPokemonApi()
-                .then(options => {
-                    let userOption;
-                    const i = Math.floor(Math.random() * 25);
-                    userOption = options.results[i];
-                    return userOption;
-                });
         });
     }
 
