@@ -1,5 +1,3 @@
-import pokemonData from '../../data/pokemonData.js';
-
 const USER_POKEMON_KEY = 'user-pokemon';
 const OPPONENT_POKEMON_KEY = 'opponent-pokemon';
 
