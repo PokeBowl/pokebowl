@@ -7,7 +7,8 @@ class UserConsole extends Component {
 
     onRender(dom) {
         let userPokemon = this.props.userPokemon;
-        let opponentPokemon = this.props.opponentPokemon;
+        let textFieldContent = this.props.textFieldContent;
+        let attack = this.props.attack;
 
         let props = { pokemon: userPokemon };
         const userPokemonRender = new PokemonRender(props);
@@ -17,13 +18,12 @@ class UserConsole extends Component {
         userPokemonDiv.appendChild(userPokemonRender.renderDOM());
 
         let gameplayText = dom.querySelector('#gameplay-text');
-        gameplayText.textContent = `Welcome to the Pokebowl! Your opponent is ${opponentPokemon.pokemon}!
-        Attack first with ${userPokemon.pokemon}!`;
+        gameplayText.textContent = textFieldContent;
 
 
         const attackButton = dom.querySelector('#attack-button');
         attackButton.addEventListener('click', () => {
-            
+            attack();
         }); 
     }
     
