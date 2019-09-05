@@ -8,7 +8,7 @@ class PokemonRender extends Component {
             <div class="pokemon-card">
                 <div id="stats">
                     <p>${pokemon.pokemon}</p>
-                    <p>HP: ${pokemon.hp}</p>
+                    <p class="pokemon-hp">HP: ${pokemon.hp}</p>
                 </div>
                 <div class="pokemon-image-container">
                     <img src="${pokemon.url_image}" alt="${pokemon.pokemon}">
