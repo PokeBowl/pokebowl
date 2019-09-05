@@ -26,9 +26,11 @@ class Field extends Component {
                 <div id="pokebowl-header">
                     <img src="./assets/pokebowl-header.png">
                 </div>
+                <div id="opp-user-pk">
+                    <div id="user-pokemon"></div>
+                    <div id="opponent-pokemon"></div>
+                </div>
                 
-                <div id="user-pokemon"></div>
-                <div id="opponent-pokemon"></div>
             </div>
         `;
     }
