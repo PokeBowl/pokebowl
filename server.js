@@ -37,7 +37,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
-// app.use('/api/', ensureAuth);
+app.use('/api/', ensureAuth);
 
 app.get('/api/test', (req, res) => {
     res.json({

@@ -1,6 +1,4 @@
 import Component from '../Component.js';
-import { getUserPokemonApi } from '../../services/pokemon-api.js';
-import { addUserPkmnStats } from '../../services/database-api.js';
 
 class SignUp extends Component {
 
@@ -17,19 +15,6 @@ class SignUp extends Component {
             };
 
             onSignUp(user);
-            getUserPokemonApi()
-                .then(options => {
-                    const i = Math.floor(Math.random() * 25);
-                    const pokemon = options.results[i];
-                    const userPokemon = {
-                        pokemon: pokemon.pokemon,
-                        attack: pokemon.attack,
-                        defense: pokemon.defense,
-                        hp: pokemon.hp,
-                        url_image: pokemon.url_image
-                    };
-                    console.log(addUserPkmnStats(userPokemon));
-                });
         });
     }
 
