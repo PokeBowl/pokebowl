@@ -13,8 +13,9 @@ class UserPokemon extends Component {
                     <p>Attack Points: ${pokemon.attack}</p>
                     <p>Defense Points: ${pokemon.defense}</p>
                     <p>Health Points: ${pokemon.hp}</p>
-                </div>
+                </div> 
             </div>
+
         `;
     }
 }

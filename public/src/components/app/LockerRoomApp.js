@@ -3,7 +3,7 @@ import Header from './Header.js';
 import UserPokemon from '../locker-room/UserPokemon.js';
 import HistoricalData from '../locker-room/HistoricalData.js';
 import userPokemonArray from '../../../data/userPokemonArray.js';
-import { addUserPkmnStats } from '../../services/database-api.js';
+import { addUserPkmnStats, getUserPkmnStats } from '../../services/database-api.js';
 import { loadGameConditions } from '../../services/loadGameConditions.js';
 
 
@@ -19,14 +19,29 @@ class LockerRoomApp extends Component {
         
         const historicalData = new HistoricalData();
         historicalDataContainer.appendChild(historicalData.renderDOM());
-        
-        const num = Math.floor(Math.random() * 25);
-        const pokemon = userPokemonArray[num];
-        // addUserPkmnStats(pokemon);
-        const props = { pokemon: pokemon };
 
-        const lockerRoomPokemon = new UserPokemon(props);
+        let pokemon = {
+            pokemon: '',
+            attack: '',
+            defense: '',
+            hp: '',
+            url_image: ''
+        };
+        
+        const lockerRoomPokemon = new UserPokemon({ pokemon });
         userPokemonContainer.appendChild(lockerRoomPokemon.renderDOM());
+        const button = dom.querySelector('#experiment');
+        button.addEventListener('click', () => {
+            const num = Math.floor(Math.random() * 25);
+            pokemon = userPokemonArray[num];
+            
+            addUserPkmnStats(pokemon)
+                .then(added => {
+                    lockerRoomPokemon.update({ pokemon: added });
+                });
+            
+        });
+    
 
         enterPokebowlButton.addEventListener('click', () => {
             loadGameConditions()
@@ -42,6 +57,7 @@ class LockerRoomApp extends Component {
         <div>
             <div id="header-root">
                 <main>
+                    <button id="experiment">experiment</button>
                     <div id="user-pokemon-container"></div>
                     <div id="history-instructions-div">
                         <div id="historical-data-container"></div>
