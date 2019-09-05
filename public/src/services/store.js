@@ -28,6 +28,10 @@ export default {
     removeUserPokemonLS() {
         localStorage.removeItem(USER_POKEMON_KEY);
     },
+    updateUserPokemonLS(pokemon) {
+        this.removeUserPokemonLS();
+        return this.setUserPokemonLS(pokemon);
+    },
     getOpponentPokemonLS() {
         const opponentPokemon = localStorage.getItem(OPPONENT_POKEMON_KEY);
         return JSON.parse(opponentPokemon);
@@ -40,5 +44,9 @@ export default {
     },
     removeOpponentPokemonLS() {
         localStorage.removeItem(OPPONENT_POKEMON_KEY);
+    },
+    updateOpponentPokemonLS(pokemon) {
+        this.removeOpponentPokemonLS();
+        return this.setOpponentPokemonLS(pokemon);
     }
 };
