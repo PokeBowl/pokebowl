@@ -17,10 +17,10 @@ export default {
         localStorage.removeItem(TOKEN_KEY);
     },
     getUserPokemonLS() {
-        return localStorage.getItem(USER_POKEMON_KEY);
+        return JSON.parse(localStorage.getItem(USER_POKEMON_KEY));
     },
     setUserPokemonLS(pokemon) {
-        return localStorage.setItem(USER_POKEMON_KEY, pokemon);
+        return localStorage.setItem(USER_POKEMON_KEY, JSON.stringify(pokemon));
     },
     hasUserPokemonLS() {
         return this.getUserPokemonLS() !== null;
@@ -29,10 +29,11 @@ export default {
         localStorage.removeItem(USER_POKEMON_KEY);
     },
     getOpponentPokemonLS() {
-        return localStorage.getItem(OPPONENT_POKEMON_KEY);
+        const opponentPokemon = localStorage.getItem(OPPONENT_POKEMON_KEY);
+        return JSON.parse(opponentPokemon);
     },
     setOpponentPokemonLS(pokemon) {
-        return localStorage.setItem(OPPONENT_POKEMON_KEY, pokemon);
+        return localStorage.setItem(OPPONENT_POKEMON_KEY, JSON.stringify(pokemon));
     },
     hasOpponentPokemonLS() {
         return this.getOpponentPokemonLS() !== null;

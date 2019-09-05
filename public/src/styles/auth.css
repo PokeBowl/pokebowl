@@ -150,3 +150,7 @@ border-radius: 3px;
 .locker-room-nav, .log-out-button {
   display: none;
 }
+
+#button-container {
+  display: none;
+}
