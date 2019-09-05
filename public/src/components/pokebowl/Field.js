@@ -1,11 +1,22 @@
 import Component from '../Component.js';
 import PokemonRender from './PokemonRender.js';
-import pokemonData from '../../../data/pokemonData.js';
+// import store from '../../services/store.js';
+import { getUserPkmnStats } from '../../services/database-api.js';
+import { getRivalPokemon } from '../../services/pokemon-api.js';
 
 class Field extends Component {
     onRender(dom) {
-        const userPokemon = pokemonData[0];
-        const opponentPokemon = pokemonData[1];
+        let userPokemon = { 
+            pokemon: '',
+            hp: '',
+            url_image: ''
+        };
+        
+        let opponentPokemon = {
+            pokemon: '',
+            hp: '',
+            url_image: ''
+        };
 
         let props = { pokemon: userPokemon };
         const userPokemonRender = new PokemonRender(props);
@@ -18,6 +29,19 @@ class Field extends Component {
 
         const opponentPokemonDiv = dom.querySelector('#opponent-pokemon');
         opponentPokemonDiv.appendChild(opponentPokemonRender.renderDOM());
+
+        getUserPkmnStats()
+            .then(results => {
+                userPokemon = results[0];
+                userPokemonRender.update({ pokemon: userPokemon });
+
+                getRivalPokemon(userPokemon)
+                    .then(results => {
+                        const num = Math.floor(Math.random() * 25);
+                        opponentPokemon = results[num];
+                        opponentPokemonRender.update({ pokemon: opponentPokemon });
+                    });
+            });
     }
 
     renderHTML() {
