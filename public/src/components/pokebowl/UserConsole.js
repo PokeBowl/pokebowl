@@ -1,17 +1,30 @@
 import Component from '../Component.js';
 import PokemonRender from './PokemonRender.js';
 import pokemonData from '../../../data/pokemonData.js';
+import store from '../../services/store.js';
 
 class UserConsole extends Component {
 
     onRender(dom) {
-        const userPokemon = pokemonData[0];
+        let userPokemon = this.props.userPokemon;
+        let opponentPokemon = this.props.opponentPokemon;
 
         let props = { pokemon: userPokemon };
         const userPokemonRender = new PokemonRender(props);
 
+
         const userPokemonDiv = dom.querySelector('#mobile-user-pokemon');
         userPokemonDiv.appendChild(userPokemonRender.renderDOM());
+
+        let gameplayText = dom.querySelector('#gameplay-text');
+        gameplayText.textContent = `Welcome to the Pokebowl! Your opponent is ${opponentPokemon.pokemon}!
+        Attack first with ${userPokemon.pokemon}!`;
+
+
+        const attackButton = dom.querySelector('#attack-button');
+        attackButton.addEventListener('click', () => {
+            
+        }); 
     }
     
     renderHTML() {

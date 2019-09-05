@@ -103,16 +103,18 @@
 
 body {
     height: 100vh;
-    background-color: rgba(43, 114, 185, 0.89);
+    background-color:rgb(43, 114, 185);
 }
 
 #how-to-play-container {
-    background-color: #E67B95;
+    background-color: lightblue;
+    border: 5px dashed #E67B95;
     border-radius: 5px;
 }
 
 #historical-data-container {
-    background-color: #E67B95;
+    background-color: lightblue;
+    border: 5px dashed #E67B95;
     border-radius: 5px;
     overflow: scroll;
 }
