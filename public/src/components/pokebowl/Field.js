@@ -1,6 +1,6 @@
 import Component from '../Component.js';
 import PokemonRender from './PokemonRender.js';
-// import store from '../../services/store.js';
+import store from '../../services/store.js';
 import { getUserPkmnStats } from '../../services/database-api.js';
 import { getRivalPokemon } from '../../services/pokemon-api.js';
 
@@ -38,8 +38,11 @@ class Field extends Component {
                 getRivalPokemon(userPokemon)
                     .then(results => {
                         const num = Math.floor(Math.random() * 25);
-                        opponentPokemon = results[num];
+                        opponentPokemon = results.results[num];
+                        console.log(opponentPokemon);
+                        store.setOpponentPokemonLS(opponentPokemon);
                         opponentPokemonRender.update({ pokemon: opponentPokemon });
+                        
                     });
             });
     }
