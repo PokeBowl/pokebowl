@@ -4,11 +4,13 @@ import SignUp from '../auth/SignUp.js';
 import SignIn from '../auth/SignIn.js';
 import { userSignUp, userSignIn } from '../../services/database-api.js';
 import store from '../../services/store.js';
+
 function success(user) {
     store.setToken(user.token);
     const searchParams = new URLSearchParams(location.search);
-    location = searchParams.get('redirect') || './index.html';
+    location = searchParams.get('redirect') || './locker-room.html';
 }
+
 class AuthApp extends Component {
     onRender(dom) {
         const header = new Header();
