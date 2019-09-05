@@ -1,11 +1,9 @@
 const URL = 'https://alchemy-pokedex.herokuapp.com/api/pokedex';
 
 export function getRivalPokemon(stats) {
-    const attack = stats.attack;
-    const defense = stats.defense;
     const hp = stats.hp;
 
-    const url = `${URL}?page=1&perPage=25&attack=${attack}&defense=${defense}&hp=${hp}&sort=hp&direction=asc`;
+    const url = `${URL}?page=1&perPage=25&hp=${hp}&sort=hp&direction=asc`;
 
     return fetch(url)
 

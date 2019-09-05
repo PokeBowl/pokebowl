@@ -1,22 +1,11 @@
 import Component from '../Component.js';
 import PokemonRender from './PokemonRender.js';
-import store from '../../services/store.js';
-import { getUserPkmnStats } from '../../services/database-api.js';
-import { getRivalPokemon } from '../../services/pokemon-api.js';
+
 
 class Field extends Component {
     onRender(dom) {
-        let userPokemon = { 
-            pokemon: '',
-            hp: '',
-            url_image: ''
-        };
-        
-        let opponentPokemon = {
-            pokemon: '',
-            hp: '',
-            url_image: ''
-        };
+        let userPokemon = this.props.userPokemon;
+        let opponentPokemon = this.props.opponentPokemon;
 
         let props = { pokemon: userPokemon };
         const userPokemonRender = new PokemonRender(props);
@@ -30,21 +19,7 @@ class Field extends Component {
         const opponentPokemonDiv = dom.querySelector('#opponent-pokemon');
         opponentPokemonDiv.appendChild(opponentPokemonRender.renderDOM());
 
-        getUserPkmnStats()
-            .then(results => {
-                userPokemon = results[0];
-                userPokemonRender.update({ pokemon: userPokemon });
-
-                getRivalPokemon(userPokemon)
-                    .then(results => {
-                        const num = Math.floor(Math.random() * 25);
-                        opponentPokemon = results.results[num];
-                        console.log(opponentPokemon);
-                        store.setOpponentPokemonLS(opponentPokemon);
-                        opponentPokemonRender.update({ pokemon: opponentPokemon });
-                        
-                    });
-            });
+        
     }
 
     renderHTML() {
