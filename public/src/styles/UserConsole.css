@@ -8,7 +8,7 @@
         top: 25%;
         left: 5%;
     }
-    #opponent-pokemon {
+    #opp-user-pk {
         width: 70%;
         align-self: center;
         margin-top: 10%;
@@ -60,37 +60,70 @@
     #pokebowl-header img {
         max-width: 95%;
     }
+    #stats {
+        padding: 2%;
+    }
+    #opponent-pokemon img {
+        border-radius: 30%;
+    }
 }
+
 @media screen and (min-width: 551px) and (max-width: 750px) {
-    #user-pokemon {
+    #mobile-user-pokemon {
         display: none;
     }
-    #mobile-user-pokemon {
-        max-width: 30%;
-        margin-right: 1%;
-        margin-top: 1%;
-    }
-    #opponent-pokemon {
-        width: 45%;
-        align-self: center;
+    #user-pokemon, #opponent-pokemon {
+        display: flex;
         margin-top: 1%;
         margin-bottom: 1%;
     }
     #field {
+        height: 70vh;
+    }
+    #user-pokemon {
+        width: 20%;
+        margin: 0 3%;
+    }
+    #opponent-pokemon {
+        width: 20%;
+        margin: 0 3%;
+    }
+    #opponent-pokemon img, #user-pokemon img {
+        margin-top: 2%;
+    }
+    #user-pokemon img {
+        border-radius: 30%;
+    }
+    #opponent-pokemon img {
+        border-radius: 40%;
+    }
+    #stats {
+        font-size: 60%;
+        padding: 2%;
+    }
+
+    #opp-user-pk{
+        height: 86%;
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        flex-direction: row;
     }
     #user-console {
-        max-height: 50%;
+        height: 30vh;
         padding: 1%;
-        min-width: 100%;
+        width: 100%;
+    }
+    #gameplay-text-container {
+        margin-bottom: 1%;
+        padding: 1%;
+        font-size: 70%;
     }
     #gameplay-action-container {
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        flex-direction: row;
         padding: 1%;
+        margin: 0;
     }
     #console-flex-container {
         display: flex;
@@ -105,33 +138,62 @@
     }
 }
 @media screen and (min-width: 751px) {
-    #user-pokemon {
-        max-width: 30%;
-    }
     #mobile-user-pokemon {
         display: none;
     }
-    #opponent-pokemon {
-        width: 45%;
-        /* margin-top: 1%;
-        margin-bottom: 1%; */
+    #user-pokemon, #opponent-pokemon {
+        display: flex;
+        margin-top: 1%;
+        margin-bottom: 1%;
     }
     #field {
+        height: 70vh;
+    }
+    #user-pokemon {
+        width: 20%;
+        margin: 0 3%;
+    }
+    #opponent-pokemon {
+        width: 20%;
+        margin: 0 3%;
+    }
+    #opponent-pokemon img, #user-pokemon img {
+        margin-top: 4%;
+    }
+    #user-pokemon img {
+        border-radius: 30%;
+    }
+    #opponent-pokemon img {
+        border-radius: 40%;
+    }
+    #stats {
+        font-size: 100%;
+        padding: 2%;
+    }
+
+    #opp-user-pk{
+        height: 86%;
         display: flex;
         justify-content: center;
         flex-direction: row;
     }
     #user-console {
-        min-height: 40%;
+        height: 30vh;
         padding: 1%;
-        min-width: 100%;
+        width: 100%;
+    }
+    #gameplay-text-container {
+        margin-bottom: 1%;
+        padding: 1%;
+        font-size: 110%;
     }
     #gameplay-action-container {
         display: flex;
         justify-content: center;
-        flex-direction: column;
+        flex-direction: row;
         padding: 1%;
-        width: 30%;
+        margin: 0;
+        max-height: 60%;
     }
     #console-flex-container {
         display: flex;
@@ -143,6 +205,11 @@
     }
     #pokebowl-header img {
         max-width: 100%;
+    }
+    .console-button {
+        font-size: 100%;
+        margin: 1%;
+        padding: 1%;
     }
 }
 
@@ -166,8 +233,6 @@ body {
 #gameplay-text-container {
     background-color: lightblue;
     overflow: scroll;
-    margin-bottom: 2%;
-    padding: 2%;
     border: 5px double rgb(43, 114, 185);
 }
 
@@ -197,9 +262,12 @@ body {
     width: 100%;
 }
 
+#opponent-pokemon img, #user-pokemon img {
+    background-color: rgba(1, 10, 29, 0.555);
+}
+
 #stats {
     background-color: rgba(211, 211, 211, 0.781);
-    padding: 5%;
     border: 5px solid #F8D030;
     border-radius: 3px;
 }
