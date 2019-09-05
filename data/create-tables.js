@@ -10,15 +10,14 @@ client.query(`
     );
     
     CREATE TABLE history (
-
         id SERIAL PRIMARY KEY,
         user_char VARCHAR(256) NOT NULL,
         opponent VARCHAR(256) NOT NULL,
         result VARCHAR(256) NOT NULL,
         user_id INTEGER NOT NULL REFERENCES users(id)
-    )
+    );
 
-    CREATE TABLE user-pokemon-stats (
+    CREATE TABLE user_pokemon_stats (
         id SERIAL PRIMARY KEY NOT NULL,
         pokemon VARCHAR(256) NOT NULL,
         attack INTEGER NOT NULL,
@@ -26,7 +25,7 @@ client.query(`
         hp INTEGER NOT NULL,
         url_image VARCHAR(512) NOT NULL,
         user_id INTEGER NOT NULL REFERENCES users(id)
-    )
+    );
 `)
     .then(
         () => console.log('create tables complete'),
