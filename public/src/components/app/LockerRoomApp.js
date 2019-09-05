@@ -2,7 +2,8 @@ import Component from '../Component.js';
 import Header from './Header.js';
 import UserPokemon from '../locker-room/UserPokemon.js';
 import HistoricalData from '../locker-room/HistoricalData.js';
-import pokemonData from '../../../data/pokemonData.js';
+import userPokemonArray from '../../../data/userPokemonArray.js';
+import { addUserPkmnStats } from '../../services/database-api.js';
 import { loadGameConditions } from '../../services/loadGameConditions.js';
 
 
@@ -19,13 +20,14 @@ class LockerRoomApp extends Component {
         const historicalData = new HistoricalData();
         historicalDataContainer.appendChild(historicalData.renderDOM());
         
-        const userPokemon = pokemonData[0];
-        const props = { pokemon: userPokemon };
+        const num = Math.floor(Math.random() * 25);
+        const pokemon = userPokemonArray[num];
+        // addUserPkmnStats(pokemon);
+        const props = { pokemon: pokemon };
 
         const lockerRoomPokemon = new UserPokemon(props);
         userPokemonContainer.appendChild(lockerRoomPokemon.renderDOM());
 
-        
         enterPokebowlButton.addEventListener('click', () => {
             loadGameConditions()
                 .then(() => {
