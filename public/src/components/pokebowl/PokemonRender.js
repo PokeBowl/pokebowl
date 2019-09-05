@@ -6,7 +6,6 @@ class PokemonRender extends Component {
 
         return /*html*/`
             <div class="pokemon-card">
-                <button id="experiment">experiment</button>
                 <div id="stats">
                     <p>${pokemon.pokemon}</p>
                     <p>HP: ${pokemon.hp}</p>
