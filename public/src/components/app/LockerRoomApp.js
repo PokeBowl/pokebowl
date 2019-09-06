@@ -3,7 +3,7 @@ import Header from './Header.js';
 import UserPokemon from '../locker-room/UserPokemon.js';
 import HistoricalData from '../locker-room/HistoricalData.js';
 import userPokemonArray from '../../../data/userPokemonArray.js';
-import { addUserPkmnStats, getUserPkmnStats, removeUserPkmnStats } from '../../services/database-api.js';
+import { addUserPkmnStats, getUserPkmnStats, removeUserPkmnStats, getHistoryItems } from '../../services/database-api.js';
 
 
 class LockerRoomApp extends Component {
@@ -17,9 +17,13 @@ class LockerRoomApp extends Component {
 
         const header = new Header();
         headerRoot.prepend(header.renderDOM());
-        
-        const historicalData = new HistoricalData();
-        historicalDataContainer.appendChild(historicalData.renderDOM());
+
+        let historicalData = `See the results of your battles here!`;
+
+        const historicalDataDom = new HistoricalData({ historicalData });
+        historicalDataContainer.appendChild(historicalDataDom.renderDOM());
+
+
 
         let lockerRoomPokemon = new UserPokemon({ });
     
