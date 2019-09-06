@@ -271,6 +271,7 @@ body {
     overflow: scroll;
     border: 5px double rgb(43, 114, 185);
     border-radius: 5px;
+    line-height: 1.5;
 }
 
 #gameplay-action-container {
