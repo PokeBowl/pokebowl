@@ -48,23 +48,30 @@ class PokebowlApp extends Component {
                     userConsole.update(consoleProps);
                 }
                 else {
-                    textFieldContent += ` Your ${userPokemon.pokemon} has defeated ${opponentPokemon.pokemon}!`;
+                    const hpIncrease = Math.floor(Math.random() * 10) + 1; 
+                    const attackIncrease = Math.floor(Math.random() * 10) + 1; 
+                    const defenseIncrease = Math.floor(Math.random() * 10) + 1;
+                            
+                    textFieldContent += ` Your ${userPokemon.pokemon} has defeated ${opponentPokemon.pokemon}! 
+                            You have gained ${hpIncrease} HP Points, ${attackIncrease} Attack Points, and ${defenseIncrease} Defense Points!
+                            Head to the locker room! You deserve it.`;
                     consoleProps.textFieldContent = textFieldContent;
                     
                     buttonState = 'final';
                     consoleProps.buttonState = buttonState;
-
+                    
                     field.update(fieldProps);
                     userConsole.update(consoleProps);
                     // add win to history
                     getUserPkmnStats()
                         .then(results => {
                             const userPokemon = results[0];
-                            userPokemon.hp += 5;
-                            userPokemon.attack += 5; 
-                            userPokemon.defense += 5;
+        
+                            userPokemon.hp += hpIncrease;
+                            userPokemon.attack += attackIncrease; 
+                            userPokemon.defense += defenseIncrease;
+        
                             updateUserPkmnStats(userPokemon);
-    
                         });
                 }
             }
@@ -117,7 +124,7 @@ class PokebowlApp extends Component {
                     userConsole.update(consoleProps);
                 }
                 else {
-                    textFieldContent += ` ${opponentPokemon.pokemon} has defeated your ${userPokemon.pokemon}!`;
+                    textFieldContent += ` ${opponentPokemon.pokemon} has defeated your ${userPokemon.pokemon}! Return to the locker room and rest up for the next match!`;
                     consoleProps.textFieldContent = textFieldContent;
 
                     buttonState = 'final';
