@@ -27,7 +27,18 @@ export const attackArray = [
     'wring-out',
     'x-scissor',
     'yawn',
-    'zing zap'
+    'zing zap',
+    'zap cannon',
+    'weather ball',
+    'twinkle tackle',
+    'telekinesis',
+    'take down',
+    'swords dance',
+    'supersonic skystrike',
+    'super fang',
+    'stored power',
+    'leaf blade',
+    'razor wind'
 ];
 
 export const defenseArray = [
@@ -41,5 +52,72 @@ export const defenseArray = [
     'ice body',
     'shell armor',
     'pressure',
-    'clear body'
+    'clear body',
+    'acid armor',
+    'acupressure',
+    'ancient power',
+    'barrier',
+    'bulk up',
+    'coil',
+    'cosmic power',
+    'cotton guard',
+    'curse',
+    'defend order',
+    'defense curl',
+    'diamond storm',
+    'extreme evoboost',
+    'flowe shield',
+    'harden',
+    'iron defense',
+    'ominous wind',
+    'stockpile',
+    'withdraw',
+    'aqua ring',
+    'aurora veil',
+    'protect',
+    'baneful barrier',
+    'block',
+    'crafty shield',
+    'detect',
+    'endure',
+    'spiky shield',
+    'shore up',
+    'roost',
+    'reversal',
+    'rest',
+    'return',
+    'reflect',
+    'quick guard'
+];
+
+export const finishingMovesArray = [
+    'defeated',
+    'destroyed',
+    'decimated',
+    'finished',
+    'feinted',
+    'wrung out',
+    'knocked out',
+    'gave slight brain damage to',
+    'pulverized',
+];
+
+export const defenseAdvAdjArray = [
+    'soundly deflect',
+    'deftly dogged',
+    'outmaneuver',
+    'have a cup of tea during',
+    'sleep through',
+    'laugh at',
+    'flippantly defy',
+];
+
+export const attackAdvAdjArray = [
+    'attacked',
+    'ravaged',
+    'smashed',
+    'wounded',
+    'defiled',
+    'mauled',
+    'pulverized',
 ];
