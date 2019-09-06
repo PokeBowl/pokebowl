@@ -10,12 +10,12 @@ class Header extends Component {
                     </div>
                     <div id="button-container">
                         <div class="log-out-container">
-                            <button class="log-out-button">Log Out</button>
+                            <button class="log-out-button"><a href="./auth.html">Log Out</a></button>
                         </div>
                         
 
                         <nav class="head-nav">
-                            <a class="locker-room-nav" href="./locker-room.html">Locker Room</a>
+                            <a class="locker-room-nav lock-hide" href="./locker-room.html">Locker Room</a>
                             <a class="locker-room-nav" href="./about-us.html">About Us</a>
                         </nav>
                     </div>
