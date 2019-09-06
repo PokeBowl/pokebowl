@@ -18,25 +18,20 @@ class LockerRoomApp extends Component {
         const header = new Header();
         headerRoot.prepend(header.renderDOM());
 
-        let historicalData = `Your Battle History!`;
+        let historicalData = [`Your Battle History!`];
         
         const historicalDataDom = new HistoricalData({ historicalData });
         historicalDataContainer.appendChild(historicalDataDom.renderDOM());
 
         getHistoryItems()
             .then(results => {
-
-                let newHistoricalData = results.reduce((resultString, obj) => { 
-                    let historicalDataString;
+                results.map(obj => {
                     if(obj.result === 'win') {
-                        historicalDataString = ` Your ${obj.user_char} defeated ${obj.opponent}!`;
+                        historicalData.push(`Your ${obj.user_char} defeated ${obj.opponent}!`);
                     } else if(obj.result === 'loss') {
-                        historicalDataString = ` Your ${obj.user_char} was defeated by ${obj.opponent}!`;
+                        historicalData.push(`Your ${obj.user_char} was defeated by ${obj.opponent}!`);
                     }
-                    resultString += historicalDataString;
-                    return resultString;}, '');
-
-                historicalData += newHistoricalData;
+                });
                 historicalDataDom.update({ historicalData });
             });
 
@@ -91,7 +86,7 @@ class LockerRoomApp extends Component {
                 deleteUserHistory()
                                 // eslint-disable-next-line no-unused-vars
                     .then(result => {
-                        historicalData = `Your Battle History!`;
+                        historicalData = [`Your Battle History!`];
                         historicalDataDom.update({ historicalData });
                     });
             }
