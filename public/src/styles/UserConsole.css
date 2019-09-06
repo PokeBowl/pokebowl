@@ -1,22 +1,312 @@
+@media screen and (max-width: 550px) {
+    #user-pokemon {
+        display: none;
+    }
+    #mobile-user-pokemon {
+        max-width: 40%;
+        position: absolute;
+        top: 25%;
+        left: 5%;
+    }
+    #mobile-user-pokemon img {
+        margin-bottom: 2%;
+    }
+    #opp-user-pk {
+        width: 70%;
+        max-width: 250px;
+        align-self: center;
+        margin-top: 10%;
+    }
+    #opp-user-pk img {
+        margin-top: 2%;
+    }
+    #field {
+        height: 56vh;
+        padding: 1%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #user-console {
+        height: 45vh;
+        padding: 2%;
+        min-width: 100%;
+    }
+    #gameplay-action-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 2%;
+        position: absolute;
+        top: 25%;
+        right: 5%;
+        max-width: 40%;
+    }
+    #gameplay-text-container {
+        height: 8vh;
+    }
+    #console-flex-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #pokebowl-header {
+        display: flex;
+        max-width: 27%;
+        justify-content: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+    }
+    .console-button {
+        margin: 5% 2%;
+        padding: 4%;
+    }
+    #opponent-pokemon #stats {
+        width: 80%;
+        padding: 1%;
+        margin: 0 auto;
+    }
+    #pokebowl-header img {
+        max-width: 95%;
+    }
+    #stats {
+        padding: 2%;
+    }
+    #opponent-pokemon img {
+        border-radius: 30%;
+    }
+}
+
+@media screen and (min-width: 551px) and (max-width: 750px) {
+    #mobile-user-pokemon {
+        display: none;
+    }
+    #user-pokemon, #opponent-pokemon {
+        display: flex;
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+    #field {
+        height: 70vh;
+    }
+    #opp-user-pk {
+        display: flex;
+        align-items: center;
+    }
+    #user-pokemon {
+        width: 30%;
+        max-width: 180px;
+        margin: 0 3%;
+    }
+    #opponent-pokemon {
+        width: 30%;
+        max-width: 180px;
+        margin: 0 3%;
+    }
+    #opponent-pokemon img, #user-pokemon img {
+        margin-top: 2%;
+    }
+    #user-pokemon img {
+        border-radius: 30%;
+    }
+    #opponent-pokemon img {
+        border-radius: 30%;
+    }
+    #stats {
+        font-size: 70%;
+        padding: 2%;
+    }
+
+    #opp-user-pk{
+        height: 86%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    #user-console {
+        height: 30vh;
+        padding: 1%;
+        width: 100%;
+    }
+    #gameplay-text-container {
+        margin-bottom: 1%;
+        padding: 1%;
+        font-size: 90%;
+        max-height: 15vh;
+    }
+    #gameplay-action-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        padding: 1%;
+        margin: 0;
+        max-height: 15vh;
+    }
+    #console-flex-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #pokebowl-header {
+        max-width: 20%;
+    }
+    #pokebowl-header img {
+        max-width: 100%;
+    }
+    button {
+        min-width: 25%;
+        padding: 1%;
+        font-size: 10%;
+        margin: 2px;
+    }
+}
+@media screen and (min-width: 751px) {
+    #mobile-user-pokemon {
+        display: none;
+    }
+    #user-pokemon, #opponent-pokemon {
+        display: flex;
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
+    #field {
+        height: 70vh;
+    }
+    #opp-user-pk {
+        display: flex;
+        align-items: center;
+    }
+    #user-pokemon {
+        width: 25%;
+        margin: 0 3%;
+        max-width: 225px;
+        margin-bottom: 5%;
+    }
+    #opponent-pokemon {
+        width: 25%;
+        margin: 0 3%;
+        max-width: 225px;
+        margin-bottom: 5%;
+    }
+    #opponent-pokemon img, #user-pokemon img {
+        margin-top: 4%;
+    }
+    #user-pokemon img {
+        border-radius: 30%;
+    }
+    #opponent-pokemon img {
+        border-radius: 30%;
+    }
+    #stats {
+        font-size: 100%;
+        padding: 2%;
+    }
+
+    #opp-user-pk{
+        height: 86%;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+    }
+    #user-console {
+        height: 30vh;
+        padding: 1%;
+        width: 100%;
+    }
+    #gameplay-text-container {
+        margin-bottom: 1%;
+        padding: .5%;
+        font-size: 110%;
+        max-height: 15vh;
+    }
+    #gameplay-action-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        padding: .5%;
+        margin: 0;
+        max-height: 10vh;
+        max-width: 500px;
+        width: 50%;
+    }
+    #console-flex-container {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #pokebowl-header {
+        max-width: 20%;
+    }
+    #pokebowl-header img {
+        max-width: 100%;
+    }
+    .console-button {
+        margin: 1%;
+        min-width: 25%;
+        padding: 1%;
+        font-size: 70%;
+    }
+}
+
+/* general styles */
+
+body {
+    height: 100vh;
+    background-image: url("../../assets/stadium.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
 #user-console {
-    background-color: rgb(43, 114, 185);
+    background-color: rgb(43, 114, 185); 
     position: fixed;
     bottom: 0;
-    min-height: 50%;
-    padding: 2%;
-}
-
-#mobile-user-pokemon {
-    background-color: lime;
-    min-width: 10px;
-}
-
-.console-button {
-    background-color: #F8D030;
+    border-top: medium double rgba(211, 211, 211, 0.918);
 }
 
 #gameplay-text-container {
-    background-color: #E67B95;
-    margin-bottom: 2%;
-    padding: 2%;
+    background-color: lightblue;
+    overflow: scroll;
+    border: 5px double rgb(43, 114, 185);
+    border-radius: 5px;
+    line-height: 1.5;
+}
+
+#gameplay-action-container {
+    background-color: rgba(211, 211, 211, 0.918);
+    border: 5px solid #F8D030;
+    border-radius: 5px;
+}
+
+.console-button {
+    border: 5px solid rgb(43, 114, 185);
+    border-radius: 3px;
+}
+
+#attack-button {
+    background-color: #F8D030;
+}
+
+#defense-button {
+    background-color: lightgreen; 
+}
+
+#forfeit-button {
+    background-color: lightpink; 
+}
+
+.pokemon-image-container img {
+    width: 100%;
+}
+
+#opponent-pokemon img, #user-pokemon img {
+    background-color: rgba(1, 10, 29, 0.555);
+}
+
+#stats {
+    background-color: rgba(211, 211, 211, 0.781);
+    border: 5px solid #F8D030;
+    border-radius: 3px;
 }

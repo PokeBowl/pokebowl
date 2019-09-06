@@ -1,6 +1,6 @@
 @media screen and (max-width: 550px) {
     header {
-        margin: 0 0 2% 0;
+        margin: 0;
     }
     .header-img-container {
         width: 90%;
@@ -65,7 +65,7 @@
 @media screen and (min-width: 751px) {
     header {
         margin: 0 0 2% 0;
-        padding: 2%;
+        padding: .5%;
         display: flex;
         justify-content: center;
     }
@@ -135,3 +135,7 @@ header {
     width: 100%;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}

@@ -45,8 +45,162 @@ app.get('/api/test', (req, res) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log('server running on PORT', PORT);
+
+app.get('/api/user-pokemon-stats', (req, res) => {
+    client.query(`
+    SELECT
+    id,
+    pokemon,
+    attack,
+    defense,
+    hp,
+    url_image
+    FROM user_pokemon_stats
+    WHERE user_id = $1;
+    `,
+    [req.userId]
+    )
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
+
+app.post('/api/user-pokemon-stats', (req, res) => {
+    const pokemon = req.body;
+    client.query(`
+    INSERT INTO user_pokemon_stats (pokemon, attack, defense, hp, url_image, user_id)
+    VALUES ($1, $2, $3, $4, $5, $6)
+    RETURNING *;
+    `,
+    [pokemon.pokemon, pokemon.attack, pokemon.defense, pokemon.hp, pokemon.url_image, req.userId]
+    )
+        .then(result => {
+            res.json(result.rows[0]);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        }); 
+});
+
+app.put('/api/user-pokemon-stats/:id', (req, res) => {
+    const id = req.params.id;
+    
+    const pokemon = req.body;
+    
+    client.query(`
+    UPDATE user_pokemon_stats
+    SET    attack = $2,
+    defense = $3,
+    hp = $4
+    WHERE  id = $1
+    AND    user_id = $5
+    RETURNING *;
+    `,
+    [id, pokemon.attack, pokemon.defense, pokemon.hp, req.userId]
+    )
+        .then(result => {
+            console.log(result);
+            res.json(result.rows[0]);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        }); 
+});
+
+app.delete('/api/user-pokemon-stats/:id', (req, res) => {
+    const id = req.params.id;
+    
+    client.query(`
+    DELETE FROM user_pokemon_stats
+    WHERE  id = $1
+    AND    user_id = $2
+    RETURNING *;
+    `,
+    [id, req.userId]
+    )
+        .then(result => {
+            console.log(result);
+            res.json(result.rows[0]);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        }); 
+});
+
+app.get('/api/battle-results', (req, res) => {
+    client.query(`
+    SELECT
+    id,
+    user_char,
+    opponent,
+    result
+    FROM history
+    WHERE user_id = $1;
+    `,
+    [req.userId]
+    )
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
+
+app.post('/api/battle-results', (req, res) => {
+    const history = req.body;
+    client.query(`
+    INSERT INTO history (user_char, opponent, result, user_id)
+    VALUES ($1, $2, $3, $4)
+    RETURNING *;
+    `,
+    [history.user_char, history.opponent, history.result, req.userId]
+    )
+        .then(result => {
+            res.json(result.rows[0]);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        }); 
 });
 
 
+
+app.delete('/api/battle-results/', (req, res) => {
+    
+    client.query(`
+    DELETE FROM history
+    WHERE user_id = $1
+    RETURNING *;
+    `,
+    [req.userId]
+    )
+        .then(result => {
+            console.log(result);
+            res.json(result.rows[0]);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        }); 
+});
+
+app.listen(PORT, () => {
+    console.log('server running on PORT', PORT);
+});

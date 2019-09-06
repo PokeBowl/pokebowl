@@ -1,0 +1,23 @@
+@media screen and (max-width: 550px) {
+    #historical-data-span {
+        padding: 2%;
+        max-height: 200px;
+    }
+}
+
+@media screen and (min-width: 551px) and (max-width: 750px) {
+    #historical-data-span {
+        padding: 1.5%;
+        max-height: 300px;
+    }
+}
+
+@media screen and (min-width: 751px) {
+    #historical-data-span {
+        max-height: 340px;
+    }
+}
+
+#historical-data-span {
+    line-height: 1.5;
+}
