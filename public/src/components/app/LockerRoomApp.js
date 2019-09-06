@@ -18,11 +18,27 @@ class LockerRoomApp extends Component {
         const header = new Header();
         headerRoot.prepend(header.renderDOM());
 
-        let historicalData = `See the results of your battles here!`;
-
+        let historicalData = `Your Battle History!`;
+        
         const historicalDataDom = new HistoricalData({ historicalData });
         historicalDataContainer.appendChild(historicalDataDom.renderDOM());
 
+        getHistoryItems()
+            .then(results => {
+                
+                let newHistoricalData = results.reduce((resultString, obj) => { 
+                    let historicalDataString;
+                    if(obj.result === 'win') {
+                        historicalDataString = ` Your ${obj.user_char} defeated ${obj.opponent}!`;
+                    } else if(obj.result === 'loss') {
+                        historicalDataString = ` Your ${obj.user_char} was defeated by ${obj.opponent}!`;
+                    }
+                    resultString += historicalDataString;
+                    return resultString;}, '');
+
+                historicalData += newHistoricalData;
+                historicalDataDom.update({ historicalData });
+            });
 
 
         let lockerRoomPokemon = new UserPokemon({ });
