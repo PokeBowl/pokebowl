@@ -5,8 +5,12 @@ class HistoricalData extends Component {
 
         const historicalData = this.props.historicalData;
         const historicalDataSpan = dom.querySelector('#historical-data-span');
-        historicalDataSpan.textContent = historicalData;
-
+        
+        historicalData.map(string => {
+            const paragraph = document.createElement('P');
+            paragraph.textContent = string;
+            historicalDataSpan.appendChild(paragraph);
+        });
     }
     
     renderHTML() {
