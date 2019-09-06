@@ -49,9 +49,9 @@ class PokebowlApp extends Component {
                     userConsole.update(consoleProps);
                 }
                 else {
-                    const hpIncrease = Math.floor(Math.random() * 10) + 1; 
-                    const attackIncrease = Math.floor(Math.random() * 10) + 1; 
-                    const defenseIncrease = Math.floor(Math.random() * 10) + 1;
+                    const hpIncrease = Math.floor(Math.random() * 9) + 2; 
+                    const attackIncrease = Math.floor(Math.random() * 9) + 2; 
+                    const defenseIncrease = Math.floor(Math.random() * 9) + 2;
                     
                     const finishingMovesOption = finishingMovesArray[Math.floor(Math.random() * finishingMovesArray.length)];
 
