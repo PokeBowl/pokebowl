@@ -4,6 +4,7 @@ import UserConsole from '../pokebowl/UserConsole.js';
 import store from '../../services/store.js';
 import { getUserPkmnStats, updateUserPkmnStats } from '../../services/database-api.js';
 import { getRivalPokemon } from '../../services/pokemon-api.js';
+import { attackArray, defenseArray } from '../../../data/moves.js';
 
 class PokebowlApp extends Component {
 
@@ -12,6 +13,9 @@ class PokebowlApp extends Component {
         function attack() {
             const userPokemon = store.getUserPokemonLS();
             const opponentPokemon = store.getOpponentPokemonLS();
+
+            const attackOption = attackArray[Math.floor(Math.random() * attackArray.length)];
+            const defenseOption = defenseArray[Math.floor(Math.random() * defenseArray.length)];
 
             const attackPoints = Math.floor(Math.random() * userPokemon.attack);
             const defensePoints = Math.floor(Math.random() * opponentPokemon.defense);
@@ -26,7 +30,7 @@ class PokebowlApp extends Component {
                 fieldProps.opponentPokemon = opponentPokemon;
                 consoleProps.opponentPokemon = opponentPokemon;
 
-                textFieldContent += ` ${userPokemon.pokemon} did ${harm} points of damage to ${opponentPokemon.pokemon}!`;
+                textFieldContent += ` ${userPokemon.pokemon} attacked ${opponentPokemon.pokemon} with ${attackOption} and did ${harm} points of damage!`;
                 consoleProps.textFieldContent = textFieldContent;
 
                 field.update(fieldProps);
@@ -65,7 +69,7 @@ class PokebowlApp extends Component {
                 }
             }
             else {
-                textFieldContent += ` ${userPokemon.pokemon}'s attack did no damage to ${opponentPokemon.pokemon}! ${opponentPokemon.pokemon} is about to attack! Defend!`;
+                textFieldContent += ` ${opponentPokemon.pokemon} used ${defenseOption} to soundly deflect your ${userPokemon.pokemon}'s attack! ${opponentPokemon.pokemon} is about to attack! Defend!`;
                 consoleProps.textFieldContent = textFieldContent;
 
                 buttonState = 'defend';
@@ -80,6 +84,9 @@ class PokebowlApp extends Component {
             const userPokemon = store.getUserPokemonLS();
             const opponentPokemon = store.getOpponentPokemonLS();
 
+            const attackOption = attackArray[Math.floor(Math.random() * attackArray.length)];
+            const defenseOption = defenseArray[Math.floor(Math.random() * defenseArray.length)];
+
             const attackPoints = Math.floor(Math.random() * opponentPokemon.attack);
             const defensePoints = Math.floor(Math.random() * userPokemon.defense);
 
@@ -93,7 +100,7 @@ class PokebowlApp extends Component {
                 fieldProps.userPokemon = userPokemon;
                 consoleProps.userPokemon = userPokemon;
 
-                textFieldContent += ` ${opponentPokemon.pokemon} did ${harm} points of damage to your ${userPokemon.pokemon}!`;
+                textFieldContent += ` ${opponentPokemon.pokemon} attacked your ${userPokemon.pokemon} with ${attackOption} and did ${harm} points of damage!`;
                 consoleProps.textFieldContent = textFieldContent;
                 field.update(fieldProps);
                 userConsole.update(consoleProps);
@@ -122,7 +129,7 @@ class PokebowlApp extends Component {
                 }
             }
             else {
-                textFieldContent += ` ${opponentPokemon.pokemon}'s attack did no damage to your ${userPokemon.pokemon}! It is your ${userPokemon.pokemon}'s turn to attack!`;
+                textFieldContent += ` Your ${userPokemon.pokemon} used ${defenseOption} to soundly deflect ${opponentPokemon.pokemon}'s attack! It is your ${userPokemon.pokemon}'s turn to attack!`;
                 consoleProps.textFieldContent = textFieldContent;
                 buttonState = 'attack';
                 consoleProps.buttonState = buttonState;
@@ -185,7 +192,7 @@ class PokebowlApp extends Component {
                         fieldProps.opponentPokemon = opponentPokemon;
                         consoleProps.opponentPokemon = opponentPokemon;
                             
-                        textFieldContent += ` Your opponent is ${opponentPokemon.pokemon}! Attack first with ${userPokemon.pokemon}!`;
+                        textFieldContent += ` Your ${userPokemon.pokemon}'s opponent is ${opponentPokemon.pokemon}! Attack first!`;
                         consoleProps.textFieldContent = textFieldContent;
 
                         field.update(fieldProps);
