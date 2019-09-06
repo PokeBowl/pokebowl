@@ -13,7 +13,6 @@ class UserConsole extends Component {
         let defend = this.props.defend;
         let buttonState = this.props.buttonState;
 
-        console.log(textFieldContent);
 
         let props = { pokemon: userPokemon };
         const userPokemonRender = new PokemonRender(props);
@@ -24,21 +23,24 @@ class UserConsole extends Component {
 
         let gameplayText = dom.querySelector('#gameplay-text');
         gameplayText.textContent = textFieldContent;
-        console.log(gameplayText.textContent);
 
 
         const attackButton = dom.querySelector('#attack-button');
         const defenseButton = dom.querySelector('#defense-button');
+        const lockerRoomButton = dom.querySelector('#forfeit-button');
 
         if(buttonState === 'attack') {
             attackButton.disabled = false;
             defenseButton.disabled = true;
+            lockerRoomButton.disabled = true;
         } else if(buttonState === 'defend') {
             attackButton.disabled = true;
             defenseButton.disabled = false;
+            lockerRoomButton.disabled = true;
         } else if(buttonState === 'final') {
             attackButton.disabled = true;
             defenseButton.disabled = true;
+            lockerRoomButton.disabled = false;
         }
 
         attackButton.addEventListener('click', () => {
@@ -47,6 +49,10 @@ class UserConsole extends Component {
         
         defenseButton.addEventListener('click', () => {
             defend();
+        });
+
+        lockerRoomButton.addEventListener('click', () => {
+            window.location = `./locker-room.html`;
         });
     }
     
@@ -61,7 +67,7 @@ class UserConsole extends Component {
                     <div id="gameplay-action-container">
                         <button class="console-button" id="attack-button">ATTACK</button>
                         <button class="console-button" id="defense-button">DEFEND</button>
-                        <button class="console-button" id="forfeit-button">FORFEIT</button>
+                        <button class="console-button" id="forfeit-button">RETURN TO LOCKER ROOM</button>
                     </div>
                 </section>
             </div>
