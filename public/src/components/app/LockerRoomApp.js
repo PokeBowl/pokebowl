@@ -3,7 +3,7 @@ import Header from './Header.js';
 import UserPokemon from '../locker-room/UserPokemon.js';
 import HistoricalData from '../locker-room/HistoricalData.js';
 import userPokemonArray from '../../../data/userPokemonArray.js';
-import { addUserPkmnStats, getUserPkmnStats } from '../../services/database-api.js';
+import { addUserPkmnStats, getUserPkmnStats, removeUserPkmnStats } from '../../services/database-api.js';
 
 
 class LockerRoomApp extends Component {
@@ -12,7 +12,8 @@ class LockerRoomApp extends Component {
         const historicalDataContainer = dom.querySelector('#historical-data-container');
         const userPokemonContainer = dom.querySelector('#user-pokemon-container');
         const enterPokebowlButton = dom.querySelector('#enter-pokebowl');
-        const button = dom.querySelector('#generate-user-pokemon');
+        const generateButton = dom.querySelector('#generate-user-pokemon');
+        const getNewPokemonButton = dom.querySelector('#get-new-pokemon');
 
         const header = new Header();
         headerRoot.prepend(header.renderDOM());
@@ -28,15 +29,16 @@ class LockerRoomApp extends Component {
             .then(results => {
                 pokemon = results;
                 if(pokemon.length === 0) {
-                    button.classList.remove('hidden');
+                    generateButton.classList.remove('hidden');
                 } else {
                     pokemon = results[0];
                     lockerRoomPokemon = new UserPokemon({ pokemon });
                     userPokemonContainer.appendChild(lockerRoomPokemon.renderDOM());
+                    getNewPokemonButton.classList.remove('hidden');
                 }
             });
 
-        button.addEventListener('click', () => {
+        generateButton.addEventListener('click', () => {
             const num = Math.floor(Math.random() * 25);
             pokemon = userPokemonArray[num];
             
@@ -45,14 +47,33 @@ class LockerRoomApp extends Component {
                     lockerRoomPokemon = new UserPokemon({ pokemon: added });
                     userPokemonContainer.appendChild(lockerRoomPokemon.renderDOM());
                 });
-            button.classList.add('hidden');
-            
+            generateButton.classList.add('hidden');
+            getNewPokemonButton.classList.remove('hidden');
         });
     
+        getNewPokemonButton.addEventListener('click', () => {
+            if(window.confirm('Are you sure you want to get a new pokemon? Doing so will reset your stats and history.')) { 
+                getUserPkmnStats()
+                    .then(results => {  
+                        pokemon = results[0];
+                        removeUserPkmnStats(pokemon.id)
+                        // eslint-disable-next-line no-unused-vars
+                            .then(result => {
+                                getNewPokemonButton.classList.add('hidden');
+                                generateButton.classList.remove('hidden');
+                                const childrenArray = userPokemonContainer.childNodes;
+                                const pokemonDomItem = childrenArray[5];
+                                userPokemonContainer.removeChild(pokemonDomItem);
+                            });
+                    
+                    });
+            }
+        });
 
         enterPokebowlButton.addEventListener('click', () => {
             window.location = `./pokebowl.html`;
         });
+
         
     }
 
@@ -63,6 +84,7 @@ class LockerRoomApp extends Component {
                 <main>
                     <div id="user-pokemon-container">
                         <button class="hidden" id="generate-user-pokemon">Get Your Pokemon!</button>
+                        <button class="hidden" id="get-new-pokemon">Get A New Pokemon</button>
                     </div>
                     <div id="history-instructions-div">
                         <div id="historical-data-container"></div>
