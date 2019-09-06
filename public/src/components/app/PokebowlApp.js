@@ -2,7 +2,7 @@ import Component from '../Component.js';
 import Field from '../pokebowl/Field.js';
 import UserConsole from '../pokebowl/UserConsole.js';
 import store from '../../services/store.js';
-import { getUserPkmnStats, updateUserPkmnStats } from '../../services/database-api.js';
+import { getUserPkmnStats, updateUserPkmnStats, addHistoryItem } from '../../services/database-api.js';
 import { getRivalPokemon } from '../../services/pokemon-api.js';
 import { attackArray, defenseArray } from '../../../data/moves.js';
 
@@ -62,7 +62,13 @@ class PokebowlApp extends Component {
                     
                     field.update(fieldProps);
                     userConsole.update(consoleProps);
-                    // add win to history
+
+                    addHistoryItem({
+                        user_char: userPokemon.pokemon,
+                        opponent: opponentPokemon.pokemon,
+                        result: 'win'
+                    });
+
                     getUserPkmnStats()
                         .then(results => {
                             const userPokemon = results[0];
@@ -132,7 +138,12 @@ class PokebowlApp extends Component {
 
                     field.update(fieldProps);
                     userConsole.update(consoleProps);
-                    // add loss to history
+                    
+                    addHistoryItem({
+                        user_char: userPokemon.pokemon,
+                        opponent: opponentPokemon.pokemon,
+                        result: 'loss'
+                    });
                 }
             }
             else {

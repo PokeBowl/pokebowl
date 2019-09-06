@@ -142,7 +142,7 @@ app.get('/api/battle-results', (req, res) => {
     client.query(`
     SELECT
     id,
-    user_char AS userChar,
+    user_char,
     opponent,
     result,
     FROM history
