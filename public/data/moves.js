@@ -89,3 +89,35 @@ export const defenseArray = [
     'reflect',
     'quick guard'
 ];
+
+export const finishingMovesArray = [
+    'defeated',
+    'destroyed',
+    'decimated',
+    'finished',
+    'feinted',
+    'wrung out',
+    'knocked out',
+    'gave slight brain damage to',
+    'pulverized',
+];
+
+export const defenseAdvAdjArray = [
+    'soundly deflect',
+    'deftly dogged',
+    'outmaneuver',
+    'have a cup of tea during',
+    'sleep through',
+    'laugh at',
+    'flippantly defy',
+];
+
+export const attackAdvAdjArray = [
+    'attacked',
+    'ravaged',
+    'smashed',
+    'wounded',
+    'defiled',
+    'mauled',
+    'pulverized',
+];
