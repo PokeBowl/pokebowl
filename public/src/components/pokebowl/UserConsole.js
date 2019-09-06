@@ -1,7 +1,5 @@
 import Component from '../Component.js';
 import PokemonRender from './PokemonRender.js';
-import pokemonData from '../../../data/pokemonData.js';
-import store from '../../services/store.js';
 
 
 class UserConsole extends Component {
