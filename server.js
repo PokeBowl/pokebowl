@@ -144,7 +144,7 @@ app.get('/api/battle-results', (req, res) => {
     id,
     user_char,
     opponent,
-    result,
+    result
     FROM history
     WHERE user_id = $1;
     `,
