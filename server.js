@@ -142,9 +142,9 @@ app.get('/api/battle-results', (req, res) => {
     client.query(`
     SELECT
     id,
-    user_char AS userChar,
+    user_char,
     opponent,
-    result,
+    result
     FROM history
     WHERE user_id = $1;
     `,
@@ -181,16 +181,14 @@ app.post('/api/battle-results', (req, res) => {
 
 
 
-app.delete('/api/battle-results/:id', (req, res) => {
-    const id = req.params.id;
+app.delete('/api/battle-results/', (req, res) => {
     
     client.query(`
     DELETE FROM history
-    WHERE  id = $1
-    AND    user_id = $2
+    WHERE user_id = $1
     RETURNING *;
     `,
-    [id, req.userId]
+    [req.userId]
     )
         .then(result => {
             console.log(result);

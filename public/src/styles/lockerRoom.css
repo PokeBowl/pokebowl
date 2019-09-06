@@ -79,7 +79,6 @@
     }
     #how-to-play-container p {
         padding: 2%;
-        text-overflow: scroll;
     }
     #how-to-play-container button {
         margin: 1%;
@@ -104,15 +103,27 @@
 
 body {
     height: 100vh;
-    background-color: rgba(43, 114, 185, 0.89);
+    background-color:rgb(43, 114, 185);
 }
 
 #how-to-play-container {
-    background-color: #E67B95;
+    background-color: lightblue;
+    border: 5px dashed #E67B95;
     border-radius: 5px;
 }
 
 #historical-data-container {
-    background-color: #E67B95;
+    background-color: lightblue;
+    border: 5px dashed #E67B95;
     border-radius: 5px;
+    overflow: scroll;
+}
+
+.scroll {
+    max-height: 100%;
+    overflow: scroll;
+}
+
+#how-to-play-container p,  #historical-data-span {
+    line-height: 1.3;
 }

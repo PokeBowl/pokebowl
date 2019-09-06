@@ -97,6 +97,7 @@
 }
 
 #user-pokemon-container {
-    background-color: #E67B95;
+    background-color: lightblue;
+    border: 5px dashed #E67B95;
     border-radius: 5px;
 }

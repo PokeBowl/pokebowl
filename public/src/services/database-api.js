@@ -13,7 +13,6 @@ function fetchWithError(url, options) {
         options = options || {};
         options.headers = options.headers || {};
         options.headers.Authorization = token;
-        location = `/locker-room.html`;
     }
 
     return fetch(url, options)
@@ -70,8 +69,8 @@ export function getHistoryItems() {
     return fetchWithError(url);
 }
 
-export function deleteUserHistory(id) {
-    const url = `${URL}/battle-results/${id}`;
+export function deleteUserHistory() {
+    const url = `${URL}/battle-results/`;
     return fetchWithError(url, {
         method: 'DELETE'
     });

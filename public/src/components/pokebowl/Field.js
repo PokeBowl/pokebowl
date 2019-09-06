@@ -1,11 +1,11 @@
 import Component from '../Component.js';
 import PokemonRender from './PokemonRender.js';
-import pokemonData from '../../../data/pokemonData.js';
+
 
 class Field extends Component {
     onRender(dom) {
-        const userPokemon = pokemonData[0];
-        const opponentPokemon = pokemonData[1];
+        let userPokemon = this.props.userPokemon;
+        let opponentPokemon = this.props.opponentPokemon;
 
         let props = { pokemon: userPokemon };
         const userPokemonRender = new PokemonRender(props);
@@ -18,6 +18,8 @@ class Field extends Component {
 
         const opponentPokemonDiv = dom.querySelector('#opponent-pokemon');
         opponentPokemonDiv.appendChild(opponentPokemonRender.renderDOM());
+
+        
     }
 
     renderHTML() {
@@ -26,9 +28,11 @@ class Field extends Component {
                 <div id="pokebowl-header">
                     <img src="./assets/pokebowl-header.png">
                 </div>
+                <div id="opp-user-pk">
+                    <div id="user-pokemon"></div>
+                    <div id="opponent-pokemon"></div>
+                </div>
                 
-                <div id="user-pokemon"></div>
-                <div id="opponent-pokemon"></div>
             </div>
         `;
     }
