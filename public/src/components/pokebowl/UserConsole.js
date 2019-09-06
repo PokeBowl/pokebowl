@@ -20,7 +20,11 @@ class UserConsole extends Component {
         userPokemonDiv.appendChild(userPokemonRender.renderDOM());
 
         let gameplayText = dom.querySelector('#gameplay-text');
-        gameplayText.textContent = textFieldContent;
+        textFieldContent.map(string => {
+            const paragraph = document.createElement('P');
+            paragraph.textContent = string;
+            gameplayText.appendChild(paragraph);
+        });
 
 
         const attackButton = dom.querySelector('#attack-button');
@@ -58,7 +62,7 @@ class UserConsole extends Component {
         return /*html*/`
             <div id="user-console">
                 <div id="gameplay-text-container">
-                    <span id="gameplay-text">Action text goes here.</span>
+                    <span id="gameplay-text"></span>
                 </div>
                 <section id="console-flex-container">
                     <div id="mobile-user-pokemon"></div>
