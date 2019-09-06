@@ -30,14 +30,14 @@ class PokebowlApp extends Component {
                 fieldProps.opponentPokemon = opponentPokemon;
                 consoleProps.opponentPokemon = opponentPokemon;
 
-                textFieldContent += ` ${userPokemon.pokemon} attacked ${opponentPokemon.pokemon} with ${attackOption} and did ${harm} points of damage!`;
+                textFieldContent.push(`${userPokemon.pokemon} attacked ${opponentPokemon.pokemon} with ${attackOption} and did ${harm} points of damage!`);
                 consoleProps.textFieldContent = textFieldContent;
 
                 field.update(fieldProps);
                 userConsole.update(consoleProps);
 
                 if(opponentPokemon.hp > 0) {
-                    textFieldContent += ` ${opponentPokemon.pokemon} is about to attack! Defend!`;
+                    textFieldContent.push(`${opponentPokemon.pokemon} is about to attack! Defend!`);
                     consoleProps.textFieldContent = textFieldContent;
 
                     buttonState = 'defend';
@@ -52,9 +52,9 @@ class PokebowlApp extends Component {
                     const attackIncrease = Math.floor(Math.random() * 10) + 1; 
                     const defenseIncrease = Math.floor(Math.random() * 10) + 1;
                             
-                    textFieldContent += ` Your ${userPokemon.pokemon} has defeated ${opponentPokemon.pokemon}! 
+                    textFieldContent.push(`Your ${userPokemon.pokemon} has defeated ${opponentPokemon.pokemon}! 
                             You have gained ${hpIncrease} HP Points, ${attackIncrease} Attack Points, and ${defenseIncrease} Defense Points!
-                            Head to the locker room! You deserve it.`;
+                            Head to the locker room! You deserve it.`);
                     consoleProps.textFieldContent = textFieldContent;
                     
                     buttonState = 'final';
@@ -82,7 +82,7 @@ class PokebowlApp extends Component {
                 }
             }
             else {
-                textFieldContent += ` ${opponentPokemon.pokemon} used ${defenseOption} to soundly deflect your ${userPokemon.pokemon}'s attack! ${opponentPokemon.pokemon} is about to attack! Defend!`;
+                textFieldContent.push(`${opponentPokemon.pokemon} used ${defenseOption} to soundly deflect your ${userPokemon.pokemon}'s attack! ${opponentPokemon.pokemon} is about to attack! Defend!`);
                 consoleProps.textFieldContent = textFieldContent;
 
                 buttonState = 'defend';
@@ -113,13 +113,13 @@ class PokebowlApp extends Component {
                 fieldProps.userPokemon = userPokemon;
                 consoleProps.userPokemon = userPokemon;
 
-                textFieldContent += ` ${opponentPokemon.pokemon} attacked your ${userPokemon.pokemon} with ${attackOption} and did ${harm} points of damage!`;
+                textFieldContent.push(`${opponentPokemon.pokemon} attacked your ${userPokemon.pokemon} with ${attackOption} and did ${harm} points of damage!`);
                 consoleProps.textFieldContent = textFieldContent;
                 field.update(fieldProps);
                 userConsole.update(consoleProps);
 
                 if(userPokemon.hp > 0) {
-                    textFieldContent += ` It is your ${userPokemon.pokemon}'s turn to attack!`;
+                    textFieldContent.push(`It is your ${userPokemon.pokemon}'s turn to attack!`);
                     consoleProps.textFieldContent = textFieldContent;
 
                     buttonState = 'attack';
@@ -130,7 +130,7 @@ class PokebowlApp extends Component {
                     userConsole.update(consoleProps);
                 }
                 else {
-                    textFieldContent += ` ${opponentPokemon.pokemon} has defeated your ${userPokemon.pokemon}! Return to the locker room and rest up for the next match!`;
+                    textFieldContent.push(`${opponentPokemon.pokemon} has defeated your ${userPokemon.pokemon}! Return to the locker room and rest up for the next match!`);
                     consoleProps.textFieldContent = textFieldContent;
 
                     buttonState = 'final';
@@ -147,7 +147,7 @@ class PokebowlApp extends Component {
                 }
             }
             else {
-                textFieldContent += ` Your ${userPokemon.pokemon} used ${defenseOption} to soundly deflect ${opponentPokemon.pokemon}'s attack! It is your ${userPokemon.pokemon}'s turn to attack!`;
+                textFieldContent.push(`Your ${userPokemon.pokemon} used ${defenseOption} to soundly deflect ${opponentPokemon.pokemon}'s attack! It is your ${userPokemon.pokemon}'s turn to attack!`);
                 consoleProps.textFieldContent = textFieldContent;
                 buttonState = 'attack';
                 consoleProps.buttonState = buttonState;
@@ -157,7 +157,7 @@ class PokebowlApp extends Component {
             }
         }
 
-        let textFieldContent = `Welcome to the Pokebowl!` ;
+        let textFieldContent = [`Welcome to the Pokebowl!`];
         let buttonState = 'attack';
 
         let userPokemon = { 
@@ -210,7 +210,7 @@ class PokebowlApp extends Component {
                         fieldProps.opponentPokemon = opponentPokemon;
                         consoleProps.opponentPokemon = opponentPokemon;
                             
-                        textFieldContent += ` Your ${userPokemon.pokemon}'s opponent is ${opponentPokemon.pokemon}! Attack first!`;
+                        textFieldContent.push(`Your ${userPokemon.pokemon}'s opponent is ${opponentPokemon.pokemon}! Attack first!`);
                         consoleProps.textFieldContent = textFieldContent;
 
                         field.update(fieldProps);
