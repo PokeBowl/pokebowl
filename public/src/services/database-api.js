@@ -69,8 +69,8 @@ export function getHistoryItems() {
     return fetchWithError(url);
 }
 
-export function deleteUserHistory(id) {
-    const url = `${URL}/battle-results/${id}`;
+export function deleteUserHistory() {
+    const url = `${URL}/battle-results/`;
     return fetchWithError(url, {
         method: 'DELETE'
     });

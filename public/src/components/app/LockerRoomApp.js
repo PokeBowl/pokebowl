@@ -87,18 +87,12 @@ class LockerRoomApp extends Component {
                             });
                     
                     });
-
-                getHistoryItems()
-                    .then(results => {
-                        if(results.length !== 0) {
-                            const obj = results[0];
-                            deleteUserHistory(obj.id)
+                    
+                deleteUserHistory()
                                 // eslint-disable-next-line no-unused-vars
-                                .then(result => {
-                                    historicalData = `Your Battle History!`;
-                                    historicalDataDom.update({historicalData});
-                                });
-                        }
+                    .then(result => {
+                        historicalData = `Your Battle History!`;
+                        historicalDataDom.update({ historicalData });
                     });
             }
         });
