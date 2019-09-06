@@ -26,7 +26,6 @@ class UserConsole extends Component {
             gameplayText.appendChild(paragraph);
         });
 
-
         const attackButton = dom.querySelector('#attack-button');
         const defenseButton = dom.querySelector('#defense-button');
         const lockerRoomButton = dom.querySelector('#forfeit-button');

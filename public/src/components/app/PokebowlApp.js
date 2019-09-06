@@ -4,7 +4,7 @@ import UserConsole from '../pokebowl/UserConsole.js';
 import store from '../../services/store.js';
 import { getUserPkmnStats, updateUserPkmnStats, addHistoryItem } from '../../services/database-api.js';
 import { getRivalPokemon } from '../../services/pokemon-api.js';
-import { attackArray, defenseArray } from '../../../data/moves.js';
+import { attackArray, defenseArray, finishingMovesArray, defenseAdvAdjArray, attackAdvAdjArray } from '../../../data/moves.js';
 
 class PokebowlApp extends Component {
 
@@ -13,9 +13,6 @@ class PokebowlApp extends Component {
         function attack() {
             const userPokemon = store.getUserPokemonLS();
             const opponentPokemon = store.getOpponentPokemonLS();
-
-            const attackOption = attackArray[Math.floor(Math.random() * attackArray.length)];
-            const defenseOption = defenseArray[Math.floor(Math.random() * defenseArray.length)];
 
             const attackPoints = Math.floor(Math.random() * userPokemon.attack);
             const defensePoints = Math.floor(Math.random() * opponentPokemon.defense);
@@ -30,7 +27,11 @@ class PokebowlApp extends Component {
                 fieldProps.opponentPokemon = opponentPokemon;
                 consoleProps.opponentPokemon = opponentPokemon;
 
-                textFieldContent.push(`${userPokemon.pokemon} attacked ${opponentPokemon.pokemon} with ${attackOption} and did ${harm} points of damage!`);
+                const attackAdvAdjOption = attackAdvAdjArray[Math.floor(Math.random() * attackAdvAdjArray.length)];
+                const attackOption = attackArray[Math.floor(Math.random() * attackArray.length)];
+                
+                textFieldContent = [];
+                textFieldContent.push(`${userPokemon.pokemon} ${attackAdvAdjOption} ${opponentPokemon.pokemon} with ${attackOption} and did ${harm} points of damage!`);
                 consoleProps.textFieldContent = textFieldContent;
 
                 field.update(fieldProps);
@@ -48,13 +49,15 @@ class PokebowlApp extends Component {
                     userConsole.update(consoleProps);
                 }
                 else {
-                    const hpIncrease = Math.floor(Math.random() * 10) + 1; 
-                    const attackIncrease = Math.floor(Math.random() * 10) + 1; 
-                    const defenseIncrease = Math.floor(Math.random() * 10) + 1;
-                            
-                    textFieldContent.push(`Your ${userPokemon.pokemon} has defeated ${opponentPokemon.pokemon}! 
-                            You have gained ${hpIncrease} HP Points, ${attackIncrease} Attack Points, and ${defenseIncrease} Defense Points!
-                            Head to the locker room! You deserve it.`);
+                    const hpIncrease = Math.floor(Math.random() * 9) + 2; 
+                    const attackIncrease = Math.floor(Math.random() * 9) + 2; 
+                    const defenseIncrease = Math.floor(Math.random() * 9) + 2;
+                    
+                    const finishingMovesOption = finishingMovesArray[Math.floor(Math.random() * finishingMovesArray.length)];
+
+                    textFieldContent.push(`Your ${userPokemon.pokemon} has ${finishingMovesOption} ${opponentPokemon.pokemon}!`); 
+                    textFieldContent.push(`You have gained ${hpIncrease} HP Points, ${attackIncrease} Attack Points, and ${defenseIncrease} Defense Points!`);
+                    textFieldContent.push(`Head to the locker room and bask in your victory! You deserve it.`);
                     consoleProps.textFieldContent = textFieldContent;
                     
                     buttonState = 'final';
@@ -82,7 +85,12 @@ class PokebowlApp extends Component {
                 }
             }
             else {
-                textFieldContent.push(`${opponentPokemon.pokemon} used ${defenseOption} to soundly deflect your ${userPokemon.pokemon}'s attack! ${opponentPokemon.pokemon} is about to attack! Defend!`);
+                const defenseOption = defenseArray[Math.floor(Math.random() * defenseArray.length)];
+                const defenseAdvAdjOption = defenseAdvAdjArray[Math.floor(Math.random() * defenseAdvAdjArray.length)];
+
+                textFieldContent = [];
+                textFieldContent.push(`${opponentPokemon.pokemon} used ${defenseOption} to ${defenseAdvAdjOption} your ${userPokemon.pokemon}'s attack!`); 
+                textFieldContent.push(`${opponentPokemon.pokemon} is about to attack! Defend!`);
                 consoleProps.textFieldContent = textFieldContent;
 
                 buttonState = 'defend';
@@ -97,9 +105,6 @@ class PokebowlApp extends Component {
             const userPokemon = store.getUserPokemonLS();
             const opponentPokemon = store.getOpponentPokemonLS();
 
-            const attackOption = attackArray[Math.floor(Math.random() * attackArray.length)];
-            const defenseOption = defenseArray[Math.floor(Math.random() * defenseArray.length)];
-
             const attackPoints = Math.floor(Math.random() * opponentPokemon.attack);
             const defensePoints = Math.floor(Math.random() * userPokemon.defense);
 
@@ -113,7 +118,11 @@ class PokebowlApp extends Component {
                 fieldProps.userPokemon = userPokemon;
                 consoleProps.userPokemon = userPokemon;
 
-                textFieldContent.push(`${opponentPokemon.pokemon} attacked your ${userPokemon.pokemon} with ${attackOption} and did ${harm} points of damage!`);
+                const attackOption = attackArray[Math.floor(Math.random() * attackArray.length)];
+                const attackAdvAdjOption = attackAdvAdjArray[Math.floor(Math.random() * attackAdvAdjArray.length)];
+
+                textFieldContent = [];
+                textFieldContent.push(`${opponentPokemon.pokemon} ${attackAdvAdjOption} your ${userPokemon.pokemon} with ${attackOption} and did ${harm} points of damage!`);
                 consoleProps.textFieldContent = textFieldContent;
                 field.update(fieldProps);
                 userConsole.update(consoleProps);
@@ -130,7 +139,10 @@ class PokebowlApp extends Component {
                     userConsole.update(consoleProps);
                 }
                 else {
-                    textFieldContent.push(`${opponentPokemon.pokemon} has defeated your ${userPokemon.pokemon}! Return to the locker room and rest up for the next match!`);
+                    const finishingMovesOption = finishingMovesArray[Math.floor(Math.random() * finishingMovesArray.length)];
+
+                    textFieldContent.push(`${opponentPokemon.pokemon} has ${finishingMovesOption} your ${userPokemon.pokemon}!`);
+                    textFieldContent.push(`Return to the locker room and hang your head in shame!`);
                     consoleProps.textFieldContent = textFieldContent;
 
                     buttonState = 'final';
@@ -147,7 +159,12 @@ class PokebowlApp extends Component {
                 }
             }
             else {
-                textFieldContent.push(`Your ${userPokemon.pokemon} used ${defenseOption} to soundly deflect ${opponentPokemon.pokemon}'s attack! It is your ${userPokemon.pokemon}'s turn to attack!`);
+                const defenseOption = defenseArray[Math.floor(Math.random() * defenseArray.length)];
+                const defenseAdvAdjOption = defenseAdvAdjArray[Math.floor(Math.random() * defenseAdvAdjArray.length)];
+
+                textFieldContent = [];
+                textFieldContent.push(`Your ${userPokemon.pokemon} used ${defenseOption} to ${defenseAdvAdjOption} ${opponentPokemon.pokemon}'s attack and took no damage!`);
+                textFieldContent.push(`It is your ${userPokemon.pokemon}'s turn to attack!`);
                 consoleProps.textFieldContent = textFieldContent;
                 buttonState = 'attack';
                 consoleProps.buttonState = buttonState;
