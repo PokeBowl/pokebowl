@@ -3,7 +3,7 @@ import Header from './Header.js';
 import UserPokemon from '../locker-room/UserPokemon.js';
 import HistoricalData from '../locker-room/HistoricalData.js';
 import userPokemonArray from '../../../data/userPokemonArray.js';
-import { addUserPkmnStats, getUserPkmnStats, removeUserPkmnStats, getHistoryItems } from '../../services/database-api.js';
+import { addUserPkmnStats, getUserPkmnStats, removeUserPkmnStats, getHistoryItems, deleteUserHistory } from '../../services/database-api.js';
 
 
 class LockerRoomApp extends Component {
@@ -25,7 +25,7 @@ class LockerRoomApp extends Component {
 
         getHistoryItems()
             .then(results => {
-                
+
                 let newHistoricalData = results.reduce((resultString, obj) => { 
                     let historicalDataString;
                     if(obj.result === 'win') {
@@ -86,6 +86,19 @@ class LockerRoomApp extends Component {
                                 userPokemonContainer.removeChild(pokemonDomItem);
                             });
                     
+                    });
+
+                getHistoryItems()
+                    .then(results => {
+                        if(results.length !== 0) {
+                            const obj = results[0];
+                            deleteUserHistory(obj.id)
+                                // eslint-disable-next-line no-unused-vars
+                                .then(result => {
+                                    historicalData = `Your Battle History!`;
+                                    historicalDataDom.update({historicalData});
+                                });
+                        }
                     });
             }
         });
