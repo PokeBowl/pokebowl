@@ -118,7 +118,7 @@ class LockerRoomApp extends Component {
                         <div id="how-to-play-container">
                             <div class="scroll">
                                 <p id="instructions">
-                                Press "Enter the PokeBowl" to start a new match. <br> <br>
+                                Press "Enter the PokeBowl" to start a new match. <br><br>
                                 To win, reduce your opponent's HP to 0.  <br> <br>
                                 Your pokemon's stats will increase when you win! <br> <br>
                                 However, you lose if your pokemon's HP falls to 0. <br> <br>
@@ -127,7 +127,7 @@ class LockerRoomApp extends Component {
                                 </p>
                             </div>
                             <button id="enter-pokebowl">Enter the PokeBowl</button>
-                    </div>
+                        </div>
                     </div>
                     
                 </main>
