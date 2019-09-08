@@ -94,7 +94,6 @@ export function addUserPkmnStats(pokemon) {
     });
 }
 
-
 export function updateUserPkmnStats(pokemon) {
     const url = `${URL}/user-pokemon-stats/${pokemon.id}`;
     return fetchWithError(url, {

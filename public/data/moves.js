@@ -95,7 +95,7 @@ export const finishingMovesArray = [
     'destroyed',
     'decimated',
     'finished',
-    'feinted',
+    'fainted',
     'wrung out',
     'knocked out',
     'gave slight brain damage to',
