@@ -14,11 +14,10 @@ class UserConsole extends Component {
 
         let props = { pokemon: userPokemon };
         const userPokemonRender = new PokemonRender(props);
-
-
         const userPokemonDiv = dom.querySelector('#mobile-user-pokemon');
         userPokemonDiv.appendChild(userPokemonRender.renderDOM());
 
+        
         let gameplayText = dom.querySelector('#gameplay-text');
         textFieldContent.map(string => {
             const paragraph = document.createElement('P');
