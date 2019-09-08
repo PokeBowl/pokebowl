@@ -15,10 +15,11 @@ class LockerRoomApp extends Component {
         const generateButton = dom.querySelector('#generate-user-pokemon');
         const getNewPokemonButton = dom.querySelector('#get-new-pokemon');
 
+        let historicalData = [`Your Battle History!`];
+
+
         const header = new Header();
         headerRoot.prepend(header.renderDOM());
-
-        let historicalData = [`Your Battle History!`];
         
         const historicalDataDom = new HistoricalData({ historicalData });
         historicalDataContainer.appendChild(historicalDataDom.renderDOM());
