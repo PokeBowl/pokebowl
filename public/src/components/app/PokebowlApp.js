@@ -151,7 +151,7 @@ class PokebowlApp extends Component {
                 const defenseAdvAdjOption = defenseAdvAdjArray[Math.floor(Math.random() * defenseAdvAdjArray.length)];
     
                 textFieldContent = [];
-                textFieldContent.push(`${opponentPokemon.pokemon} used ${defenseOption} to ${defenseAdvAdjOption} your ${userPokemon.pokemon}'s attack!`); 
+                textFieldContent.push(`${opponentPokemon.pokemon} used ${defenseOption} to ${defenseAdvAdjOption} your ${userPokemon.pokemon}'s attack and took not points damage!`); 
                 textFieldContent.push(`${opponentPokemon.pokemon} is about to attack! Defend!`);
                 consoleProps.textFieldContent = textFieldContent;
     
