@@ -15,9 +15,12 @@ class AuthApp extends Component {
     onRender(dom) {
         const header = new Header();
         dom.prepend(header.renderDOM());
+
         const errors = dom.querySelector('.errors');
+
         const signUpContainer = dom.querySelector('#signup-container');
         const signInContainer = dom.querySelector('#signin-container');
+
         const signUp = new SignUp({
             onSignUp: newUser => {
                 errors.textContent = '';
@@ -31,6 +34,7 @@ class AuthApp extends Component {
             }
         });
         signUpContainer.appendChild(signUp.renderDOM());
+
         const signIn = new SignIn({
             onSignIn: credentials => {
                 errors.textContent = '';
@@ -44,17 +48,20 @@ class AuthApp extends Component {
             }
         });
         signInContainer.appendChild(signIn.renderDOM());
+
         const switchToSignIn = dom.querySelector('#signin-button');
         switchToSignIn.addEventListener('click', () => {
             signInContainer.classList.remove('hidden');
             signUpContainer.classList.add('hidden');
         });
+
         const switchToSignUp = dom.querySelector('#signup-button');
         switchToSignUp.addEventListener('click', () => {
             signUpContainer.classList.remove('hidden');
             signInContainer.classList.add('hidden');
         });
     }
+    
     renderHTML() {
         return /*html*/`
            <div class="main-div">

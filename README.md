@@ -73,3 +73,5 @@ table user_pokemon_stats
 | id  | pokemon  | attack  | defense  | hp  | url_image  | user_id  |
 |---|---|---|---|---|---|---|
 | 0  | charzar  | 50  | 50  | 50  | (url link to picture)  | 0  |
+
+// initial commit
