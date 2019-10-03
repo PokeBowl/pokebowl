@@ -78,7 +78,7 @@ export const defenseArray = [
     'baneful barrier',
     'block',
     'crafty shield',
-    'detect',
+    'deflect',
     'endure',
     'spiky shield',
     'shore up',
