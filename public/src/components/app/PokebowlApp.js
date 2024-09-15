@@ -9,7 +9,6 @@ import { attackArray, defenseArray, finishingMovesArray, defenseAdvAdjArray, att
 class PokebowlApp extends Component {
 
     onRender(dom) {
-
         let textFieldContent = [`Welcome to the Pokebowl!`];
         let buttonState = 'attack';
         let userPokemon = { 
@@ -35,16 +34,12 @@ class PokebowlApp extends Component {
             buttonState: buttonState
         };
 
-
-
         const field = new Field(fieldProps);
         dom.appendChild(field.renderDOM());
 
         const userConsole = new UserConsole(consoleProps);
         dom.appendChild(userConsole.renderDOM());
 
-
-        
         getUserPkmnStats()
             .then(results => {
                 userPokemon = results[0];
@@ -53,26 +48,26 @@ class PokebowlApp extends Component {
                 fieldProps.userPokemon = userPokemon;
                 consoleProps.userPokemon = userPokemon;
 
-                getRivalPokemon(userPokemon)
-                    .then(results => {
-                        const num = Math.floor(Math.random() * 25);
-                        opponentPokemon = results.results[num];
-                        store.setOpponentPokemonLS(opponentPokemon);
+                return getRivalPokemon(userPokemon);
+            })
+            .then(results => {
+                const num = Math.floor(Math.random() * 25);
+                opponentPokemon = results.results[num];
+                store.setOpponentPokemonLS(opponentPokemon);
 
-                        fieldProps.opponentPokemon = opponentPokemon;
-                        consoleProps.opponentPokemon = opponentPokemon;
-                            
-                        textFieldContent.push(`Your ${userPokemon.pokemon}'s opponent is ${opponentPokemon.pokemon}! Attack first!`);
-                        consoleProps.textFieldContent = textFieldContent;
+                fieldProps.opponentPokemon = opponentPokemon;
+                consoleProps.opponentPokemon = opponentPokemon;
+                    
+                textFieldContent.push(`Your ${userPokemon.pokemon}'s opponent is ${opponentPokemon.pokemon}! Attack first!`);
+                consoleProps.textFieldContent = textFieldContent;
 
-                        field.update(fieldProps);
-                        userConsole.update(consoleProps);
-                    });
+                field.update(fieldProps);
+                userConsole.update(consoleProps);
             });
 
 
-
         function attack() {
+            // store these as variables, no need for LS
             const userPokemon = store.getUserPokemonLS();
             const opponentPokemon = store.getOpponentPokemonLS();
     

@@ -17,7 +17,6 @@ class LockerRoomApp extends Component {
 
         let historicalData = [`Your Battle History!`];
 
-
         const header = new Header();
         headerRoot.prepend(header.renderDOM());
         
@@ -26,29 +25,22 @@ class LockerRoomApp extends Component {
 
         getHistoryItems()
             .then(results => {
-                results.map(obj => {
-                    if(obj.result === 'win') {
-                        historicalData.push(`Your ${obj.user_char} defeated ${obj.opponent}!`);
-                    } else if(obj.result === 'loss') {
-                        historicalData.push(`Your ${obj.user_char} was defeated by ${obj.opponent}!`);
-                    }
+                const history = results.map(obj => {
+                    // encapsulate what varies
+                    const result = obj.result === 'win' ? 'defeated' : 'was defeated by';
+                    return `Your ${obj.user_char} ${result} ${obj.opponent}!`;
                 });
+                historicalData = historicalData.concat(history);
                 historicalDataDom.update({ historicalData });
             });
 
-
-        let lockerRoomPokemon = new UserPokemon({ });
-    
-        let pokemon;
-
         getUserPkmnStats()
             .then(results => {
-                pokemon = results;
-                if(pokemon.length === 0) {
+                if(results.length === 0) {
                     generateButton.classList.remove('hidden');
                 } else {
-                    pokemon = results[0];
-                    lockerRoomPokemon = new UserPokemon({ pokemon });
+                    const pokemon = results[0];
+                    const lockerRoomPokemon = new UserPokemon({ pokemon });
                     userPokemonContainer.appendChild(lockerRoomPokemon.renderDOM());
                     getNewPokemonButton.classList.remove('hidden');
                 }
@@ -56,48 +48,49 @@ class LockerRoomApp extends Component {
 
         generateButton.addEventListener('click', () => {
             const num = Math.floor(Math.random() * 25);
-            pokemon = userPokemonArray[num];
+            const pokemon = userPokemonArray[num];
             
             addUserPkmnStats(pokemon)
                 .then(added => {
-                    lockerRoomPokemon = new UserPokemon({ pokemon: added });
+                    const lockerRoomPokemon = new UserPokemon({ pokemon: added });
                     userPokemonContainer.appendChild(lockerRoomPokemon.renderDOM());
                 });
+
             generateButton.classList.add('hidden');
             getNewPokemonButton.classList.remove('hidden');
         });
+
+        const CONFIRM_MESSAGE = 'Are you sure you want to get a new pokemon? Doing so will reset your stats and history.';
     
         getNewPokemonButton.addEventListener('click', () => {
-            if(window.confirm('Are you sure you want to get a new pokemon? Doing so will reset your stats and history.')) { 
-                getUserPkmnStats()
-                    .then(results => {  
-                        pokemon = results[0];
-                        removeUserPkmnStats(pokemon.id)
-                        // eslint-disable-next-line no-unused-vars
-                            .then(result => {
-                                getNewPokemonButton.classList.add('hidden');
-                                generateButton.classList.remove('hidden');
-                                const childrenArray = userPokemonContainer.childNodes;
-                                const pokemonDomItem = childrenArray[5];
-                                userPokemonContainer.removeChild(pokemonDomItem);
-                            });
+            // invert logic to prevent extra code nesting
+            if(!window.confirm(CONFIRM_MESSAGE)) return;
+             
+            getUserPkmnStats()
+                .then(results => {  
+                    const pokemon = results[0];
+                    return removeUserPkmnStats(pokemon.id);
+                })
+                .then(() => {
+                    getNewPokemonButton.classList.add('hidden');
+                    generateButton.classList.remove('hidden');
+                    const childrenArray = userPokemonContainer.childNodes;
+                    // grabbing a hard-coded index like [5] can make code fragile
+                    const pokemonDomItem = childrenArray[5];
+                    userPokemonContainer.removeChild(pokemonDomItem);
+                });
                     
+            deleteUserHistory()
+                .then(() => {
+                    historicalDataDom.update({ 
+                        historicalData: [`Your Battle History!`]
                     });
-                    
-                deleteUserHistory()
-                                // eslint-disable-next-line no-unused-vars
-                    .then(result => {
-                        historicalData = [`Your Battle History!`];
-                        historicalDataDom.update({ historicalData });
-                    });
-            }
+                });
         });
 
         enterPokebowlButton.addEventListener('click', () => {
             window.location = `./pokebowl.html`;
         });
-
-        
     }
 
     renderHTML() {
